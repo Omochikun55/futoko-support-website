@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# みらいの学び場 - 不登校支援サービスウェブサイト
 
-## Getting Started
+## 概要
 
-First, run the development server:
+札幌を拠点とする不登校支援サービス「みらいの学び場」の公式ウェブサイトです。学校に行く・行かないをゴールにせず、本人と家族が安心して学べる選択肢を一緒に増やすことを目的としています。
+
+## 技術スタック
+
+- **フレームワーク**: Next.js 15.0.2 (App Router)
+- **言語**: TypeScript
+- **スタイリング**: Tailwind CSS v4
+- **フォーム**: React Hook Form + Zod
+- **アイコン**: Lucide React
+- **フォント**: Noto Sans JP (Google Fonts)
+
+## 主な機能
+
+### ページ構成
+- **ホーム** - サービス概要と理念
+- **支援メニュー** - 提供サービスの詳細
+- **初回相談・見立て** - アセスメントプロセスの説明
+- **実例と歩み** - 支援事例（検索・フィルタ機能付き）
+- **料金・プラン** - 制度利用と実費プランの説明
+- **保護者さま向け** - 保護者向け情報とリソース
+- **私たちについて** - チーム紹介と理念
+- **よくある質問** - FAQ
+- **お問い合わせ** - 相談予約フォーム
+- **プライバシーポリシー**
+- **利用規約**
+
+### デザイン特徴
+- モダンなグラデーションとアニメーション
+- レスポンシブデザイン（モバイル対応）
+- アクセシビリティ対応（ARIA labels、セマンティックHTML）
+- 日本語フォント最適化
+
+### SEO対策
+- メタタグ最適化
+- Open Graph対応
+- 構造化データ（JSON-LD）
+- robots.txt / sitemap.xml
+- Canonical URL設定
+
+## 開発環境のセットアップ
 
 ```bash
+# 依存関係のインストール
+npm install
+
+# 開発サーバーの起動
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# ビルド
+npm run build
+
+# 本番サーバーの起動
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## プロジェクト構造
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+futoko-support-website/
+├── app/                    # Next.js App Router pages
+│   ├── layout.tsx         # ルートレイアウト
+│   ├── page.tsx           # ホームページ
+│   ├── services/          # 支援メニュー
+│   ├── assessment/        # 初回相談・見立て
+│   ├── cases/             # 実例と歩み
+│   ├── pricing/           # 料金・プラン
+│   ├── parents/           # 保護者さま向け
+│   ├── about/             # 私たちについて
+│   ├── faq/               # よくある質問
+│   ├── contact/           # お問い合わせ
+│   ├── privacy/           # プライバシーポリシー
+│   └── terms/             # 利用規約
+├── components/
+│   ├── layout/            # ヘッダー、フッター
+│   └── StructuredData.tsx # 構造化データコンポーネント
+├── public/
+│   ├── images/            # 画像アセット
+│   ├── robots.txt         # クローラー設定
+│   └── sitemap.xml        # サイトマップ
+└── styles/
+    └── globals.css        # グローバルスタイル
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## デプロイ
 
-## Learn More
+本プロジェクトはVercelやNetlifyなどの静的サイトホスティングサービスで簡単にデプロイできます。
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# 静的エクスポート
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ライセンス
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+このプロジェクトは非公開プロジェクトです。
 
-## Deploy on Vercel
+## 連絡先
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 運営: 放課後等デイサービス「ぷろらぼ」
+- ウェブサイト: [pro-labo.net](https://pro-labo.net)
+- 所在地: 札幌市（円山周辺）

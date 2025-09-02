@@ -1,0 +1,109 @@
+"use client"
+
+import Link from 'next/link'
+import { useState } from 'react'
+import { Menu, X } from 'lucide-react'
+
+const navigation = [
+  { name: '支援メニュー', href: '/services' },
+  { name: '初回相談・見立て', href: '/assessment' },
+  { name: '実例と歩み', href: '/cases' },
+  { name: '料金・プラン', href: '/pricing' },
+  { name: '保護者さま向け', href: '/parents' },
+  { name: '私たちについて', href: '/about' },
+  { name: 'よくある質問', href: '/faq' },
+]
+
+export default function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  return (
+    <header className="bg-white shadow-sm sticky top-0 z-50">
+      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
+        <div className="flex h-16 items-center justify-between">
+          <div className="flex items-center">
+            <Link href="/" className="flex flex-col items-start">
+              <span className="text-xl font-bold text-heading">みらいの学び場</span>
+              <span className="text-xs text-gray-500">札幌の不登校支援</span>
+            </Link>
+          </div>
+          
+          <div className="hidden lg:flex lg:items-center lg:space-x-6">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-sm font-medium text-gray-700 hover:text-primary transition-colors"
+              >
+                {item.name}
+              </Link>
+            ))}
+            <Link
+              href="/contact"
+              className="ml-4 inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+            >
+              無料相談を予約
+            </Link>
+          </div>
+          
+          <div className="lg:hidden">
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <span className="sr-only">メインメニューを開く</span>
+              <Menu className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
+        </div>
+      </nav>
+      
+      {/* Mobile menu */}
+      <div className={`lg:hidden ${mobileMenuOpen ? '' : 'hidden'}`}>
+        <div className="fixed inset-0 z-50" />
+        <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="flex flex-col items-start">
+              <span className="text-xl font-bold text-heading">みらいの学び場</span>
+              <span className="text-xs text-gray-500">札幌の不登校支援</span>
+            </Link>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">閉じる</span>
+              <X className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-gray-200">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+              <div className="py-6">
+                <Link
+                  href="/contact"
+                  className="block rounded-md bg-primary px-3 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-700"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  無料相談を予約
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  )
+}
