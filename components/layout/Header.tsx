@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Phone } from 'lucide-react'
 
 const navigation = [
   { name: '支援メニュー', href: '/services' },
@@ -18,7 +18,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="bg-white shadow-md sticky top-0 z-50 backdrop-blur-md bg-white/95">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
@@ -38,12 +38,22 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className="ml-4 inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
-            >
-              無料相談を予約
-            </Link>
+            <div className="ml-6 flex items-center gap-4 border-l pl-6">
+              <a
+                href="tel:011-xxxx-xxxx"
+                className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-primary transition-colors"
+                aria-label="電話で問い合わせる"
+              >
+                <Phone className="h-4 w-4" />
+                <span className="hidden xl:inline">011-xxxx-xxxx</span>
+              </a>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+              >
+                無料相談を予約
+              </Link>
+            </div>
           </div>
           
           <div className="lg:hidden">
@@ -91,7 +101,15 @@ export default function Header() {
                   </Link>
                 ))}
               </div>
-              <div className="py-6">
+              <div className="py-6 space-y-4">
+                <a
+                  href="tel:011-xxxx-xxxx"
+                  className="flex items-center justify-center gap-2 rounded-md bg-gray-100 px-3 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-200"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Phone className="h-4 w-4" />
+                  011-xxxx-xxxx
+                </a>
                 <Link
                   href="/contact"
                   className="block rounded-md bg-primary px-3 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-700"

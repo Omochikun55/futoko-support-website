@@ -18,31 +18,37 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-16 lg:items-center">
               <div className="mx-auto max-w-2xl lg:mx-0">
-                <h1 className="animate-fadeIn text-4xl font-bold tracking-tight text-heading sm:text-6xl lg:text-7xl">
-                  不登校の「いま」を肯定し、
-                  <br />
-                  <span className="text-primary">次の一歩</span>を一緒に。
+                <h1 className="animate-fadeIn text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-heading">
+                  不登校の「いま」を否定せず、<br className="hidden sm:block" />
+                  子どもと一緒にゴールを考える。
                 </h1>
-                <p className="animate-fadeIn mt-6 text-lg leading-8 text-gray-600 sm:text-xl" style={{ animationDelay: '0.2s' }}>
-                  学校に行く・行かないをゴールにしません。
-                  <br />
-                  本人と家族が安心して学び、生きるための選択肢を増やす支援を行います
-                  <br />
-                  <span className="text-sm">（札幌/オンライン対応）</span>
-                </p>
-                <div className="animate-fadeIn mt-10 flex flex-col sm:flex-row items-start gap-4 sm:gap-x-6" style={{ animationDelay: '0.4s' }}>
+                <div className="animate-fadeIn mt-6 text-base sm:text-lg md:text-xl leading-relaxed text-slate-700 max-w-2xl" style={{ animationDelay: '0.2s' }}>
+                  <p>学校に行くことだけがゴールではありません。</p>
+                  <p className="mt-3 font-bold text-gray-900">
+                    「なぜ行くのか？ 本当に行く必要があるのか？」を子どもと一緒に問い直し、
+                    いまこの子にできることを最優先に、安心できる日々と自分らしい未来へ伴走します。
+                  </p>
+                  <p className="mt-3">
+                    不登校に「必ず〇〇できる」という魔法の答えはありません。
+                    だからこそ、本人と共に現実的で納得できるゴールを一歩ずつ探します。
+                  </p>
+                  <p className="mt-4 text-sm text-gray-600">（札幌/オンライン対応）</p>
+                </div>
+                <div className="animate-fadeIn mt-10 flex flex-col sm:flex-row gap-4" style={{ animationDelay: '0.4s' }}>
                   <Link
                     href="/contact"
-                    className="group relative overflow-hidden rounded-full bg-primary px-8 py-4 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:bg-blue-700 hover:shadow-xl hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                    className="btn-primary group relative overflow-hidden rounded-full bg-primary px-8 py-4 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:bg-blue-700 hover:shadow-xl hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                    aria-label="無料相談を予約する"
                   >
-                    <span className="relative z-10">無料相談を予約</span>
+                    <span className="relative z-10">無料相談を予約する</span>
                     <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-600 to-cyan-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   </Link>
                   <Link
                     href="/services"
-                    className="group flex items-center gap-2 text-base font-semibold leading-6 text-gray-700 transition-all duration-300 hover:text-primary hover:gap-3"
+                    className="btn-secondary group flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-gray-700 shadow-md ring-1 ring-gray-200 transition-all duration-300 hover:shadow-lg hover:ring-primary hover:text-primary hover:gap-3"
+                    aria-label="支援メニューを見る"
                   >
-                    支援メニューを見る 
+                    支援メニューを見る
                     <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </Link>
                 </div>
@@ -61,6 +67,17 @@ export default function Home() {
                 <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-2xl bg-gradient-to-br from-blue-100 to-cyan-100 opacity-50" />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 実現可能性の宣言 */}
+      <section className="relative bg-gradient-to-r from-amber-50 to-orange-50 py-8">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="text-lg font-semibold text-amber-900">
+              <strong>私たちは「必ず通学できる」とは言いません。</strong> いま実現できる一歩を、本人と一緒に探します。
+            </p>
           </div>
         </div>
       </section>

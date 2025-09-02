@@ -96,19 +96,58 @@ export default function ContactPage() {
             </div>
 
             {/* 外部リンクオプション */}
-            <div className="mt-8 text-center">
-              <p className="text-sm text-gray-600 mb-4">
-                フォームが表示されない場合は、こちらからアクセスしてください
-              </p>
-              <a
-                href={googleFormUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-blue-700 transition-all duration-300 hover:shadow-xl"
-              >
-                <span>Googleフォームを開く</span>
-                <ExternalLink className="h-4 w-4" />
-              </a>
+            <div className="mt-8 space-y-6">
+              <div className="text-center">
+                <p className="text-sm text-gray-600 mb-4">
+                  フォームが表示されない場合は、以下の方法でもお問い合わせいただけます
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href={googleFormUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-blue-700 transition-all duration-300 hover:shadow-xl"
+                  >
+                    <span>Googleフォームを開く</span>
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                  <a
+                    href="mailto:info@example.jp?subject=不登校支援のご相談&body=【保護者様のお名前】%0D%0A%0D%0A【お子様の学年】%0D%0A%0D%0A【ご相談内容】%0D%0A"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-gray-700 shadow-md ring-1 ring-gray-200 hover:shadow-lg hover:ring-primary transition-all duration-300"
+                  >
+                    <span>メールで相談</span>
+                    <Mail className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+
+              {/* 返信の流れ */}
+              <div className="rounded-2xl bg-blue-50 p-6 ring-1 ring-blue-100">
+                <h3 className="text-lg font-semibold text-blue-900 mb-4">お問い合わせ後の流れ</h3>
+                <ol className="space-y-3 text-sm text-blue-800">
+                  <li className="flex gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold">1</span>
+                    <div>
+                      <p className="font-medium">自動返信メール</p>
+                      <p className="text-blue-700">お問い合わせ受付のご連絡（即時）</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold">2</span>
+                    <div>
+                      <p className="font-medium">担当者からのご連絡</p>
+                      <p className="text-blue-700">48時間以内に詳細なご案内（平日対応）</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold">3</span>
+                    <div>
+                      <p className="font-medium">日程調整</p>
+                      <p className="text-blue-700">初回相談の日時を相談して決定</p>
+                    </div>
+                  </li>
+                </ol>
+              </div>
             </div>
           </div>
 
