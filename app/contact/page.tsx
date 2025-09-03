@@ -7,8 +7,8 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  // Googleフォームの埋め込みURL（実際のURLに置き換えてください）
-  const googleFormUrl = "https://forms.gle/YOUR_FORM_ID_HERE";
+  // Googleフォームの埋め込みURL
+  const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeZwmgpP_gRZf8YTTfJ0BwyQRN3uwmLRQtx4kpVBowQxw5X9Q/viewform";
   
   return (
     <>
