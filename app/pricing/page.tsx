@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Check, DollarSign, Zap, Heart, Star, Info, Calculator, CheckCircle, ArrowRight, Shield, AlertCircle } from "lucide-react";
+import { Check, DollarSign, Zap, Heart, Star, Info, CheckCircle, ArrowRight, Shield, AlertCircle } from "lucide-react";
 
 export default function PricingPage() {
   const [activeTab, setActiveTab] = useState<"fee" | "institutional">("fee");

@@ -37,7 +37,8 @@ const ServiceStructuredData: FC<ServiceStructuredDataProps> = ({
   };
 
   if (price) {
-    (jsonLd as any).offers = {
+    const jsonLdWithPrice = jsonLd as typeof jsonLd & { offers: object };
+    jsonLdWithPrice.offers = {
       "@type": "Offer",
       "price": price,
       "priceCurrency": "JPY"

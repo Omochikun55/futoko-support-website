@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
-import { Shield, Users, Calendar, CheckCircle, AlertCircle, Phone, ArrowRight, FileText } from "lucide-react";
+import { Shield, AlertCircle, Phone, ArrowRight, FileText } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "制度による支援（放課後等デイサービス）",
