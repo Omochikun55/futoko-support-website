@@ -1,13 +1,12 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { Check, DollarSign, Zap, Heart, Star, Info, Calculator, CheckCircle, ArrowRight } from "lucide-react";
+"use client";
 
-export const metadata: Metadata = {
-  title: "料金・プラン",
-  description: "制度利用（放課後等デイ）と実費プランをご用意。初回見立て5,500円から始められます。",
-};
+import { useState } from "react";
+import Link from "next/link";
+import { Check, DollarSign, Zap, Heart, Star, Info, Calculator, CheckCircle, ArrowRight, Shield, AlertCircle } from "lucide-react";
 
 export default function PricingPage() {
+  const [activeTab, setActiveTab] = useState<"fee" | "institutional">("fee");
+
   return (
     <>
       {/* Header Section */}
@@ -31,403 +30,394 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* おすすめの選び方 */}
+      {/* タブ切り替え */}
+      <section className="py-8 bg-white border-b sticky top-16 z-40">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="flex justify-center">
+            <div className="inline-flex rounded-lg bg-gray-100 p-1">
+              <button
+                onClick={() => setActiveTab("fee")}
+                className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+                  activeTab === "fee"
+                    ? "bg-white text-primary shadow-sm"
+                    : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                実費プラン
+              </button>
+              <button
+                onClick={() => setActiveTab("institutional")}
+                className={`px-6 py-3 rounded-lg font-semibold transition-all ${
+                  activeTab === "institutional"
+                    ? "bg-white text-primary shadow-sm"
+                    : "text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                制度による支援
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 選び方ガイド */}
       <section className="py-12 bg-gradient-to-b from-white to-gray-50">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 p-8 shadow-lg ring-1 ring-amber-100">
-            <h2 className="flex items-center text-xl font-bold text-gray-900 mb-4">
+            <h2 className="flex items-center text-xl font-bold text-gray-900 mb-6">
               <Info className="h-6 w-6 text-amber-600 mr-2" />
-              おすすめの選び方
+              どれを選べばいい？3つの質問で目安が分かります
             </h2>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-semibold text-gray-900 mb-1">制度利用をおすすめの方</p>
-                  <p className="text-gray-700">発達特性の診断がある、または医師の意見書が取得できる方。費用負担を抑えて継続的な支援を受けたい方。</p>
-                  <Link href="/voucher-guide" className="inline-flex items-center gap-1 mt-2 text-primary hover:text-blue-700 font-medium">
-                    受給者証ガイドを見る
-                    <ArrowRight className="h-3 w-3" />
-                  </Link>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-purple-600 flex-shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-semibold text-gray-900 mb-1">実費利用をおすすめの方</p>
-                  <p className="text-gray-700">診断がない・受給者証の取得が難しい方。まずは短期間で試したい方。オンライン中心で進めたい方。</p>
-                  <div className="flex gap-4 mt-2">
-                    <Link href="/online" className="inline-flex items-center gap-1 text-purple-600 hover:text-purple-700 font-medium">
-                      オンライン支援
-                      <ArrowRight className="h-3 w-3" />
-                    </Link>
-                    <Link href="/services" className="inline-flex items-center gap-1 text-purple-600 hover:text-purple-700 font-medium">
-                      支援メニュー
-                      <ArrowRight className="h-3 w-3" />
-                    </Link>
-                  </div>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-semibold text-gray-900 mb-1">遠方の方</p>
-                  <p className="text-gray-700">札幌市外・道外の方はオンライン支援をご利用ください。初回相談もオンラインで実施可能です。</p>
-                  <Link href="/online" className="inline-flex items-center gap-1 mt-2 text-green-600 hover:text-green-700 font-medium">
-                    オンライン支援詳細
-                    <ArrowRight className="h-3 w-3" />
-                  </Link>
-                </div>
-              </li>
-            </ul>
-            <div className="mt-6 pt-6 border-t border-amber-200">
-              <p className="text-xs text-gray-600">
-                ※ どちらが適しているか分からない場合は、初回無料相談でご案内します。まずはお気軽にご連絡ください。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3段カードセクション */}
-      <section className="py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-3">
-            {/* カード1: 制度利用 */}
-            <div className="relative rounded-3xl bg-gradient-to-br from-blue-50 to-cyan-50 p-8 shadow-xl ring-1 ring-blue-100 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-              <div className="absolute top-0 right-0 -mt-4 -mr-4 rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-lg">
-                おすすめ
-              </div>
-              <div className="mb-6 inline-flex rounded-xl bg-blue-100 p-3 ring-8 ring-blue-50">
-                <Star className="h-6 w-6 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                制度利用（放課後等デイ）
-              </h3>
-              <p className="text-3xl font-bold text-gray-900 mb-1">
-                月額 0円〜
-              </p>
-              <p className="text-sm text-gray-600 mb-6">
-                受給者証での利用
-              </p>
-              <ul className="space-y-3 mb-8">
-                <li className="flex gap-3">
-                  <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-700">週1〜5回まで利用可</span>
-                </li>
-                <li className="flex gap-3">
-                  <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-700">個別支援計画に基づく支援</span>
-                </li>
-                <li className="flex gap-3">
-                  <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-700">送迎サービス利用可</span>
-                </li>
-                <li className="flex gap-3">
-                  <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-700">学校・関係機関との連携</span>
-                </li>
-              </ul>
-              <Link
-                href="/voucher-guide"
-                className="block w-full rounded-full bg-blue-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-lg hover:bg-blue-700 transition-all duration-300"
-              >
-                受給者証の取得方法
-              </Link>
-            </div>
-
-            {/* カード2: 初回見立て */}
-            <div className="relative rounded-3xl bg-gradient-to-br from-purple-50 to-pink-50 p-8 shadow-xl ring-1 ring-purple-100 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-              <div className="mb-6 inline-flex rounded-xl bg-purple-100 p-3 ring-8 ring-purple-50">
-                <Zap className="h-6 w-6 text-purple-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                初回見立て・相談
-              </h3>
-              <p className="text-3xl font-bold text-gray-900 mb-1">
-                5,500円
-              </p>
-              <p className="text-sm text-gray-600 mb-6">
-                60〜90分 / 1回
-              </p>
-              <ul className="space-y-3 mb-8">
-                <li className="flex gap-3">
-                  <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-700">保護者面談・状態把握</span>
-                </li>
-                <li className="flex gap-3">
-                  <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-700">アセスメントシート作成</span>
-                </li>
-                <li className="flex gap-3">
-                  <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-700">支援プランのご提案</span>
-                </li>
-                <li className="flex gap-3">
-                  <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-700">制度利用時は初月から充当</span>
-                </li>
-              </ul>
-              <Link
-                href="/assessment"
-                className="block w-full rounded-full bg-purple-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-lg hover:bg-purple-700 transition-all duration-300"
-              >
-                詳しい内容を見る
-              </Link>
-            </div>
-
-            {/* カード3: 実費プラン */}
-            <div className="relative rounded-3xl bg-gradient-to-br from-amber-50 to-orange-50 p-8 shadow-xl ring-1 ring-amber-100 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-              <div className="mb-6 inline-flex rounded-xl bg-amber-100 p-3 ring-8 ring-amber-50">
-                <Heart className="h-6 w-6 text-amber-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                実費サポート
-              </h3>
-              <p className="text-3xl font-bold text-gray-900 mb-1">
-                月額 15,000円〜
-              </p>
-              <p className="text-sm text-gray-600 mb-6">
-                受給者証なしですぐ開始
-              </p>
-              <ul className="space-y-3 mb-8">
-                <li className="flex gap-3">
-                  <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-700">個別コーチング（週1回）</span>
-                </li>
-                <li className="flex gap-3">
-                  <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-700">居場所利用（月額パス）</span>
-                </li>
-                <li className="flex gap-3">
-                  <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-700">保護者コミュニティ</span>
-                </li>
-                <li className="flex gap-3">
-                  <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-700">オンライン対応可</span>
-                </li>
-              </ul>
-              <Link
-                href="/online"
-                className="block w-full rounded-full bg-amber-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-lg hover:bg-amber-700 transition-all duration-300"
-              >
-                オンライン支援を見る
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 上限早見表 */}
-      <section className="py-16 sm:py-24 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center justify-center rounded-xl bg-blue-100 p-3 mb-4">
-                <Calculator className="h-6 w-6 text-blue-600" />
-              </div>
-              <h2 className="text-3xl font-bold text-heading">
-                受給者証の自己負担上限早見表
-              </h2>
-              <p className="mt-4 text-lg text-gray-600">
-                世帯収入に応じて月額の自己負担上限が設定されています
-              </p>
-            </div>
-
-            <div className="overflow-hidden rounded-2xl shadow-xl">
-              <table className="min-w-full">
-                <thead>
-                  <tr className="bg-gradient-to-r from-blue-600 to-blue-700">
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-white">
-                      世帯の収入状況
-                    </th>
-                    <th className="px-6 py-4 text-right text-sm font-semibold text-white">
-                      月額上限額
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200 bg-white">
-                  <tr className="hover:bg-blue-50 transition-colors">
-                    <td className="px-6 py-4 text-sm text-gray-900">
-                      生活保護世帯
-                    </td>
-                    <td className="px-6 py-4 text-right text-lg font-bold text-blue-600">
-                      0円
-                    </td>
-                  </tr>
-                  <tr className="hover:bg-blue-50 transition-colors">
-                    <td className="px-6 py-4 text-sm text-gray-900">
-                      市町村民税非課税世帯
-                    </td>
-                    <td className="px-6 py-4 text-right text-lg font-bold text-blue-600">
-                      0円
-                    </td>
-                  </tr>
-                  <tr className="hover:bg-blue-50 transition-colors">
-                    <td className="px-6 py-4 text-sm text-gray-900">
-                      市町村民税課税世帯
-                      <span className="block text-xs text-gray-500 mt-1">
-                        （世帯年収約890万円まで）
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-right text-lg font-bold text-blue-600">
-                      4,600円
-                    </td>
-                  </tr>
-                  <tr className="hover:bg-blue-50 transition-colors">
-                    <td className="px-6 py-4 text-sm text-gray-900">
-                      上記以外の世帯
-                    </td>
-                    <td className="px-6 py-4 text-right text-lg font-bold text-gray-900">
-                      37,200円
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div className="mt-8 rounded-2xl bg-amber-50 p-6 ring-1 ring-amber-100">
-              <div className="flex gap-4">
-                <Info className="h-6 w-6 text-amber-600 flex-shrink-0" />
-                <div className="text-sm text-amber-900">
-                  <p className="font-semibold mb-2">ご利用にあたって</p>
-                  <ul className="space-y-1">
-                    <li>• 上限額は月単位で適用されます（日割り計算なし）</li>
-                    <li>• 複数事業所を利用しても上限額は変わりません</li>
-                    <li>• 詳細は市区町村の福祉窓口でご確認ください</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 実費プラン詳細 */}
-      <section className="py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="text-2xl font-bold text-center text-heading mb-12">
-              実費プラン詳細
-            </h2>
-
+            
             <div className="space-y-6">
-              {/* 個別コーチング */}
-              <div className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-200 hover:shadow-xl transition-shadow">
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      個別コーチング
-                    </h3>
-                    <p className="mt-2 text-sm text-gray-600">
-                      週1回45〜60分のマンツーマンサポート。学習支援から生活リズムの調整まで、
-                      お子さまのペースに合わせて伴走します。
-                    </p>
-                    <ul className="mt-3 space-y-1 text-sm text-gray-600">
-                      <li>• オンライン対応可</li>
-                      <li>• 月次レポート作成</li>
-                      <li>• 保護者面談込み</li>
-                    </ul>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-2xl font-bold text-gray-900">
-                      22,000〜33,000円
-                    </p>
-                    <p className="text-sm text-gray-600">/月</p>
-                  </div>
-                </div>
+              <div className="bg-white rounded-lg p-4">
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  1. 受給者証を持っている／申請予定ですか？
+                </h3>
+                <p className="text-gray-700 text-sm">
+                  → Yes: <strong>制度による支援（放課後等デイ）</strong>をご案内
+                </p>
               </div>
-
-              {/* 居場所利用 */}
-              <div className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-200 hover:shadow-xl transition-shadow">
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      居場所利用
-                    </h3>
-                    <p className="mt-2 text-sm text-gray-600">
-                      安心できる居場所で、同年代との交流や趣味活動を楽しめます。
-                      都度利用と月額パスから選択可能。
-                    </p>
-                    <ul className="mt-3 space-y-1 text-sm text-gray-600">
-                      <li>• 小集団活動</li>
-                      <li>• 創作・趣味活動</li>
-                      <li>• イベント参加可</li>
-                    </ul>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-2xl font-bold text-gray-900">
-                      2,000円〜/回
-                    </p>
-                    <p className="text-sm text-accent font-medium">
-                      月額パス 15,000円〜
-                    </p>
-                  </div>
-                </div>
+              
+              <div className="bg-white rounded-lg p-4">
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  2. 受給者証は未定だが、発達面の心配や強い不安・生活の乱れ等が継続していますか？
+                </h3>
+                <p className="text-gray-700 text-sm">
+                  → Yes: <strong>制度による支援の可能性あり</strong>。まずは相談／受給者証ガイドへ
+                </p>
               </div>
-
-              {/* 保護者コミュニティ */}
-              <div className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-200 hover:shadow-xl transition-shadow">
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      保護者コミュニティ
-                    </h3>
-                    <p className="mt-2 text-sm text-gray-600">
-                      同じ悩みを持つ保護者同士の交流と学びの場。
-                      専門家による勉強会やQ&Aセッションも定期開催。
-                    </p>
-                    <ul className="mt-3 space-y-1 text-sm text-gray-600">
-                      <li>• 月1回の勉強会</li>
-                      <li>• オンラインQ&A</li>
-                      <li>• 保護者交流会</li>
-                    </ul>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-2xl font-bold text-gray-900">
-                      3,000円
-                    </p>
-                    <p className="text-sm text-gray-600">/月</p>
-                  </div>
-                </div>
+              
+              <div className="bg-white rounded-lg p-4">
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  3. 学習や進路を実費で個別に進めたいですか？
+                </h3>
+                <p className="text-gray-700 text-sm">
+                  → Yes: <strong>AI／受験／高認</strong>の実費支援へ
+                </p>
               </div>
+            </div>
+            
+            <div className="mt-6 pt-6 border-t border-amber-200 text-center">
+              <p className="text-sm text-gray-600 mb-4">
+                迷ったら初回相談へ（全ケース共通）
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-2 text-primary hover:text-blue-700 font-medium">
+                無料相談を予約
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-16 sm:py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <div className="animate-fadeIn">
-            <Zap className="mx-auto h-10 w-10 text-primary mb-4" />
-            <h2 className="text-2xl font-bold text-heading mb-4">
+      {/* コンテンツ表示 */}
+      {activeTab === "fee" ? (
+        /* 実費プランセクション */
+        <>
+          <section className="py-16 sm:py-24">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <h2 className="text-2xl font-bold text-center mb-12">実費プラン</h2>
+              <div className="grid gap-8 lg:grid-cols-3">
+                
+                {/* AI学習支援 */}
+                <div className="relative rounded-3xl bg-gradient-to-br from-purple-50 to-pink-50 p-8 shadow-xl ring-1 ring-purple-100 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                  <div className="mb-6 inline-flex rounded-xl bg-purple-100 p-3 ring-8 ring-purple-50">
+                    <Zap className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    AI学習支援
+                  </h3>
+                  <p className="text-3xl font-bold text-gray-900 mb-1">
+                    月4回 18,000円〜
+                  </p>
+                  <p className="text-sm text-gray-600 mb-6">
+                    （税込・教材費込み）
+                  </p>
+                  <ul className="space-y-3 mb-8">
+                    <li className="flex items-start gap-2">
+                      <Check className="h-5 w-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-gray-700">プロンプト入門から創作まで</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="h-5 w-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-gray-700">1対1個別サポート</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="h-5 w-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-gray-700">月次レポート提供</span>
+                    </li>
+                  </ul>
+                  <Link
+                    href="/ai"
+                    className="block w-full rounded-full bg-purple-600 py-3 text-center text-sm font-semibold text-white hover:bg-purple-700 transition-colors"
+                  >
+                    詳細を見る
+                  </Link>
+                </div>
+
+                {/* 高卒認定サポート */}
+                <div className="relative rounded-3xl bg-gradient-to-br from-green-50 to-emerald-50 p-8 shadow-xl ring-1 ring-green-100 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                  <div className="mb-6 inline-flex rounded-xl bg-green-100 p-3 ring-8 ring-green-50">
+                    <Star className="h-6 w-6 text-green-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    高卒認定サポート
+                  </h3>
+                  <p className="text-3xl font-bold text-gray-900 mb-1">
+                    月4回 22,000円〜
+                  </p>
+                  <p className="text-sm text-gray-600 mb-6">
+                    （税込・教材費込み）
+                  </p>
+                  <ul className="space-y-3 mb-8">
+                    <li className="flex items-start gap-2">
+                      <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-gray-700">科目選択の戦略立案</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-gray-700">過去問徹底対策</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-gray-700">AI活用の学習効率化</span>
+                    </li>
+                  </ul>
+                  <Link
+                    href="/kounin"
+                    className="block w-full rounded-full bg-green-600 py-3 text-center text-sm font-semibold text-white hover:bg-green-700 transition-colors"
+                  >
+                    詳細を見る
+                  </Link>
+                </div>
+
+                {/* 受験個別 */}
+                <div className="relative rounded-3xl bg-gradient-to-br from-blue-50 to-cyan-50 p-8 shadow-xl ring-1 ring-blue-100 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                  <div className="mb-6 inline-flex rounded-xl bg-blue-100 p-3 ring-8 ring-blue-50">
+                    <Heart className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    受験個別指導
+                  </h3>
+                  <p className="text-3xl font-bold text-gray-900 mb-1">
+                    月4回 24,000円〜
+                  </p>
+                  <p className="text-sm text-gray-600 mb-6">
+                    （税込・教材費込み）
+                  </p>
+                  <ul className="space-y-3 mb-8">
+                    <li className="flex items-start gap-2">
+                      <Check className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-gray-700">中学・高校・大学受験対応</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-gray-700">志望校別カリキュラム</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-gray-700">面接・小論文対策</span>
+                    </li>
+                  </ul>
+                  <Link
+                    href="/juken"
+                    className="block w-full rounded-full bg-blue-600 py-3 text-center text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
+                  >
+                    詳細を見る
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* 初回相談・見立て */}
+          <section className="py-16 sm:py-24 bg-gray-50">
+            <div className="mx-auto max-w-3xl px-6 lg:px-8">
+              <div className="rounded-2xl bg-white p-8 shadow-lg">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+                  まずは初回相談から
+                </h2>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="rounded-lg bg-blue-50 p-6">
+                    <h3 className="font-semibold text-gray-900 mb-3">初回相談（無料）</h3>
+                    <p className="text-sm text-gray-600 mb-4">
+                      30〜45分のオンライン面談で、お子さまの状況をお聞きします
+                    </p>
+                    <ul className="space-y-2 text-sm text-gray-600">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <span>現状のヒアリング</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <span>支援方法のご提案</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <span>料金プランの説明</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="rounded-lg bg-purple-50 p-6">
+                    <h3 className="font-semibold text-gray-900 mb-3">見立て（5,500円）</h3>
+                    <p className="text-sm text-gray-600 mb-4">
+                      必要に応じて、より詳しい評価を行います
+                    </p>
+                    <ul className="space-y-2 text-sm text-gray-600">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                        <span>学習状況の確認</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                        <span>個別支援計画の作成</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                        <span>医療連携の必要性検討</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </>
+      ) : (
+        /* 制度による支援セクション */
+        <section className="py-16 sm:py-24">
+          <div className="mx-auto max-w-4xl px-6 lg:px-8">
+            <div className="mb-8 text-center">
+              <div className="inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-semibold text-red-700 mb-4">
+                <Shield className="h-4 w-4" />
+                受給者証が必要です
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                放課後等デイサービス（制度による支援）
+              </h2>
+            </div>
+
+            <div className="rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 p-8 shadow-lg ring-1 ring-green-200 mb-8">
+              <p className="text-gray-700 mb-4">
+                発達面の心配や日常生活・対人面での困りがあり、継続的な支援が必要な方向けの公的サービスです。
+              </p>
+              <div className="bg-amber-50 rounded-lg p-4 border border-amber-200 mb-6">
+                <p className="text-amber-900">
+                  <strong>これまで支援を受けていない方でも</strong>、
+                  不安感が強い／生活リズムの大きな乱れ／感覚過敏などがある場合は
+                  <strong>対象となる可能性があります</strong>。
+                </p>
+              </div>
+              
+              <h3 className="font-semibold text-gray-900 mb-4">自己負担</h3>
+              <p className="text-gray-700 mb-4">
+                自己負担は原則1割で、<strong>月額上限</strong>があります。
+              </p>
+              
+              <div className="bg-white rounded-lg overflow-hidden mb-6">
+                <table className="w-full">
+                  <thead className="bg-gray-100">
+                    <tr>
+                      <th className="text-left py-3 px-4 text-sm font-semibold">世帯所得</th>
+                      <th className="text-right py-3 px-4 text-sm font-semibold">月額上限</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b">
+                      <td className="py-3 px-4 text-sm">生活保護・非課税世帯</td>
+                      <td className="text-right py-3 px-4 font-bold text-green-600">0円</td>
+                    </tr>
+                    <tr className="border-b">
+                      <td className="py-3 px-4 text-sm">年収約890万円未満</td>
+                      <td className="text-right py-3 px-4 font-bold text-blue-600">4,600円</td>
+                    </tr>
+                    <tr>
+                      <td className="py-3 px-4 text-sm">上記以外</td>
+                      <td className="text-right py-3 px-4 font-bold">37,200円</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              <div className="text-center">
+                <Link
+                  href="/voucher-guide"
+                  className="inline-flex items-center gap-2 rounded-full bg-green-600 px-6 py-3 text-sm font-semibold text-white hover:bg-green-700 transition-colors"
+                >
+                  受給者証の取り方を見る
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="rounded-2xl bg-white p-8 shadow-lg">
+              <h3 className="text-xl font-bold text-gray-900 mb-6">利用までの流れ</h3>
+              <ol className="space-y-6">
+                {[
+                  "初回相談（無料）",
+                  "見立て（必要なら医療・相談支援へ接続）",
+                  "受給者証の申請・交付",
+                  "個別支援計画の作成・ご説明",
+                  "利用開始（必要に応じてAI活動を計画に組み込み）"
+                ].map((step, index) => (
+                  <li key={index} className="flex gap-3">
+                    <span className="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                      {index + 1}
+                    </span>
+                    <span className="text-gray-700">{step}</span>
+                  </li>
+                ))}
+              </ol>
+              
+              <div className="mt-8 p-4 bg-blue-50 rounded-lg">
+                <p className="text-blue-900 text-sm">
+                  <AlertCircle className="inline h-4 w-4 mr-1" />
+                  医療診断や受給者証の可否は当方では決定できません。自治体の審査・判定に基づきます。
+                </p>
+              </div>
+
+              <div className="mt-8 text-center">
+                <Link
+                  href="/welfare"
+                  className="inline-flex items-center gap-2 text-primary hover:text-blue-700 font-medium"
+                >
+                  制度による支援の詳細を見る
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* CTA Section */}
+      <section className="py-16 sm:py-24 bg-gradient-to-br from-blue-50 to-cyan-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold text-heading mb-6">
               まずは無料相談から
             </h2>
-          </div>
-          <p className="animate-fadeIn text-gray-600 mb-8" style={{ animationDelay: '0.2s' }}>
-            お子さまの状況をお聞きして、最適なプランをご提案します
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="animate-fadeIn group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-primary to-accent px-8 py-4 text-base font-semibold text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
-              style={{ animationDelay: '0.4s' }}
-            >
-              <span className="relative z-10">無料相談を予約</span>
-              <span className="relative z-10 transition-transform duration-300 group-hover:translate-x-1">→</span>
-              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-700 to-cyan-700 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            </Link>
-            <Link
-              href="/voucher-guide"
-              className="animate-fadeIn group inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-gray-700 shadow-md ring-1 ring-gray-200 hover:shadow-lg hover:ring-primary transition-all duration-300"
-              style={{ animationDelay: '0.5s' }}
-            >
-              <span>受給者証について</span>
-              <Info className="h-5 w-5" />
-            </Link>
+            <p className="text-lg text-gray-600 mb-8">
+              お子さまの状況をお聞きし、最適な支援方法をご提案します
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-blue-700 transition-all duration-300 hover:shadow-xl hover:scale-105"
+              >
+                <span>無料相談を予約</span>
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+              <a
+                href="tel:0111234567"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-gray-700 shadow-md ring-1 ring-gray-200 hover:shadow-lg hover:ring-primary transition-all duration-300"
+              >
+                <span>電話で相談</span>
+                <span className="text-sm">011-123-4567</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>

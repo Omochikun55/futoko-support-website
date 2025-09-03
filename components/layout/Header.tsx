@@ -14,11 +14,13 @@ const navigation = [
       { name: '受験個別', href: '/juken' },
     ]
   },
+  { name: '制度による支援', href: '/welfare' },
   { name: 'オンライン支援', href: '/online' },
   { name: '初回相談・見立て', href: '/assessment' },
   { name: 'ゴール設計', href: '/goal-setting' },
   { name: '実例と歩み', href: '/cases' },
   { name: '料金・プラン', href: '/pricing' },
+  { name: '受給者証ガイド', href: '/voucher-guide' },
   { name: '保護者さま向け', href: '/parents' },
   { name: '私たちについて', href: '/about' },
   { name: 'よくある質問', href: '/faq' },
