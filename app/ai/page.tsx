@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import ServiceStructuredData from "@/components/ServiceStructuredData";
+import { CautionCallout, InfoCallout } from "@/app/components/InfoCallout";
 
 export const metadata: Metadata = {
   title: "AIで学ぶ | 不登校支援センター",
@@ -38,6 +39,11 @@ export default function AIPage() {
                   <strong>📌 現在は1対1の個別サポートが基本です</strong> - お子さまのペースに合わせて、じっくりとAI学習をサポートします。グループセッションは準備中です。
                 </p>
               </div>
+              
+              <CautionCallout>
+                このページの支援（1対1個別の<strong>通所/オンライン</strong>）は<strong>すべて実費</strong>です。
+                放課後等デイ（制度）は<strong>通所のみ</strong>で、オンラインは対象外です。
+              </CautionCallout>
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/contact?type=ai"
@@ -104,12 +110,16 @@ export default function AIPage() {
                 <strong>4回スターター台本</strong>：初めての子も安心して参加できる進行プログラムをご用意しています
               </p>
             </div>
+            <p className="mt-4 text-xs text-slate-500">
+              ※AIミニラボは<strong>通所内の活動</strong>です（オンライン実施は行いません）
+            </p>
           </div>
 
           {/* 1対1個別 */}
           <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100">
             <h2 className="text-2xl font-bold mb-4">
               1対1個別（通所 / オンライン）
+              <span className="text-sm font-normal text-slate-500 ml-2">※制度対象外（実費）</span>
             </h2>
             <p className="text-slate-700 mb-4">
               Starter → Builder → Creator の3段階で、本人のペースに合わせて調整します。
@@ -191,6 +201,8 @@ export default function AIPage() {
             </div>
             <p className="mt-6 text-sm text-slate-500">
               ※ 料金は参考価格です。需要に応じて調整する場合があります
+              <br />
+              ※ これらはすべて実費支援です。放課後等デイの対象外です
               <br />
               ※ 放課後等デイサービス利用の場合は、制度による自己負担上限が適用されます
             </p>
@@ -335,6 +347,11 @@ export default function AIPage() {
                 AI学習の導入記事 →
               </a>
             </div>
+            
+            <InfoCallout>
+              放課後等デイのご利用を検討中の方は、<a href="/welfare" className="underline hover:text-slate-900">制度による支援</a>をご確認ください。
+              実費の学習支援とは別契約になります。
+            </InfoCallout>
           </div>
         </div>
       </section>

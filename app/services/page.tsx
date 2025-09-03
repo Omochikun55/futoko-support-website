@@ -152,6 +152,7 @@ export default function ServicesPage() {
                   </div>
                   <h2 className="text-2xl font-bold text-heading">
                     (A) 制度利用：放課後等デイサービス
+                    <span className="text-xs font-normal bg-green-100 text-green-700 px-2 py-0.5 rounded-full ml-2">通所のみ（遠隔不可）</span>
                   </h2>
                 </div>
               
@@ -304,6 +305,7 @@ export default function ServicesPage() {
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold text-gray-900 group-hover/item:text-primary transition-colors">
                         4. AIで学ぶ <span className="text-sm font-normal text-blue-600 ml-2">New!</span>
+                        <span className="text-xs font-normal bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full ml-2">実費（制度対象外）</span>
                       </h3>
                       <p className="mt-2 text-gray-600">
                         1対1個別とAIミニラボで創造力を育てる
@@ -379,6 +381,9 @@ export default function ServicesPage() {
               </div>
               </div>
             </div>
+            <p className="mt-4 text-xs text-slate-500 text-center">
+              ※ 放課後等デイは通所のみ。オンライン支援は制度対象外（実費）です。
+            </p>
           </div>
         </div>
       </section>

@@ -12,11 +12,19 @@ export default async function ContactPage({
   searchParams: Promise<{ type?: string; mode?: string }>;
 }) {
   const params = await searchParams;
+  
+  // type=welfareの場合、modeを強制的にonsiteに上書き
+  const type = params.type || "";
+  let mode = params.mode || "";
+  if (type === "welfare") {
+    mode = "onsite"; // 制度は通所のみ
+  }
+  
   // Googleフォームの基本URL
   const FORM_BASE = "https://docs.google.com/forms/d/e/1FAIpQLSeZwmgpP_gRZf8YTTfJ0BwyQRN3uwmLRQtx4kpVBowQxw5X9Q/viewform";
   
   // パラメータ用のエントリーID（実際のGoogleフォームのIDに合わせて更新が必要）
-  const ENTRY_TYPE = "entry.123456789"; // 支援タイプ（ai/kounin/juken）
+  const ENTRY_TYPE = "entry.123456789"; // 支援タイプ（ai/kounin/juken/welfare）
   const ENTRY_MODE = "entry.987654321"; // 受講形式（online/onsite）
   
   // URLパラメータを構築
@@ -24,22 +32,23 @@ export default async function ContactPage({
     const url = new URL(FORM_BASE);
     url.searchParams.set("usp", "pp_url");
     
-    if (params.type) {
+    if (type) {
       const typeMap: Record<string, string> = {
         ai: "AI学習支援",
         kounin: "高卒認定サポート",
         juken: "受験個別指導",
+        welfare: "制度による支援（放課後等デイ）",
       };
-      const typeValue = typeMap[params.type] || params.type;
+      const typeValue = typeMap[type] || type;
       url.searchParams.set(ENTRY_TYPE, typeValue);
     }
     
-    if (params.mode) {
+    if (mode) {
       const modeMap: Record<string, string> = {
         online: "オンライン",
         onsite: "通所",
       };
-      const modeValue = modeMap[params.mode] || params.mode;
+      const modeValue = modeMap[mode] || mode;
       url.searchParams.set(ENTRY_MODE, modeValue);
     }
     

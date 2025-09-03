@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import WelfareSplitCTA from "@/app/components/WelfareSplitCTA";
 import ProviderCard from "@/app/components/ProviderCard";
+import { CautionCallout, InfoCallout } from "@/app/components/InfoCallout";
 import { CONTACT_EMAIL, CONTACT_TEL, CONTACT_TEL_LINK } from "@/app/config";
 
 export const metadata: Metadata = {
@@ -23,6 +24,12 @@ export default function WelfarePage() {
           {/* 分岐CTA：受給者証の有無 */}
           <WelfareSplitCTA />
 
+          <CautionCallout>
+            放課後等デイサービスは<strong>通所による支援</strong>のみ提供します。
+            <u>オンライン（遠隔）での支援は制度の対象外</u>です。オンライン支援をご希望の場合は、
+            <a href="/ai" className="underline hover:text-amber-700">実費の学習支援</a>をご覧ください。
+          </CautionCallout>
+
           <div className="mt-10 space-y-8">
             <section>
               <h2 className="text-2xl font-bold text-heading">制度の概要</h2>
@@ -31,6 +38,7 @@ export default function WelfarePage() {
                 <strong>継続的なサポートが必要な方</strong>を対象にした公的な通所支援です。
                 これまで支援を受けてこなかった方でも、不安感がとても強い／生活リズムの大きな乱れ／
                 感覚過敏や集団参加の難しさ等がある場合、<strong>対象となる可能性があります</strong>。
+                支援は<strong>通所内で</strong>実施し、必要に応じてAIミニラボ等の学習・活動も行います（オンラインは制度対象外）。
               </p>
             </section>
 
@@ -52,7 +60,7 @@ export default function WelfarePage() {
                 <li>見立て（必要に応じ医療・相談支援へ接続）</li>
                 <li>受給者証の申請・交付</li>
                 <li>個別支援計画の作成・ご説明</li>
-                <li>利用開始（必要に応じてAI活動を計画に組み込み）</li>
+                <li>利用開始（必要に応じて通所内でAI活動を計画に組み込み）</li>
               </ol>
               <p className="mt-3 text-sm text-slate-500">
                 ※医療診断や受給者証の可否は当方では決定できません。自治体の審査・判定に基づきます。
@@ -64,6 +72,11 @@ export default function WelfarePage() {
               <p className="mt-3 text-sm text-slate-500">
                 フォームが開かない場合は <a href={`mailto:${CONTACT_EMAIL}`} className="underline">{CONTACT_EMAIL}</a> / <a href={`tel:${CONTACT_TEL_LINK}`} className="underline">{CONTACT_TEL}</a>
               </p>
+              
+              <InfoCallout>
+                実費の学習支援（通所/オンライン）は制度と<strong>別契約</strong>です。
+                併用は可能ですが、請求は分かれます。
+              </InfoCallout>
             </section>
           </div>
         </div>

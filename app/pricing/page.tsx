@@ -142,7 +142,7 @@ export default function PricingPage() {
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="h-5 w-5 text-purple-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-700">1対1個別サポート</span>
+                      <span className="text-sm text-gray-700">1対1個別サポート（通所/オンライン・実費）</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="h-5 w-5 text-purple-600 flex-shrink-0 mt-0.5" />
@@ -301,6 +301,7 @@ export default function PricingPage() {
 
             <div className="rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 p-8 shadow-lg ring-1 ring-green-200 mb-8">
               <p className="text-gray-700 mb-4">
+                <strong>放課後等デイは通所のみで提供します。</strong>
                 発達面の心配や日常生活・対人面での困りがあり、継続的な支援が必要な方向けの公的サービスです。
               </p>
               <div className="bg-amber-50 rounded-lg p-4 border border-amber-200 mb-6">
