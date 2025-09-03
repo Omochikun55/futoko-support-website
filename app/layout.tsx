@@ -1,16 +1,9 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import StructuredData from "@/components/StructuredData";
-
-const notoSansJP = Noto_Sans_JP({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-noto-sans-jp",
-  weight: ["400", "500", "700"],
-});
+import { notoSansJP } from "./fonts";
 
 export const metadata: Metadata = {
   title: {
@@ -63,7 +56,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <StructuredData />
       </head>
-      <body className={`${notoSansJP.variable} font-sans antialiased min-h-screen flex flex-col`}>
+      <body className={`${notoSansJP.className} ${notoSansJP.variable} antialiased min-h-screen flex flex-col`}>
         <Header />
         <main className="flex-grow">
           {children}

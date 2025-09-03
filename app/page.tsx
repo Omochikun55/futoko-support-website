@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { CheckCircle, Users, School } from "lucide-react";
+import { CheckCircle, Users, School, Brain, GraduationCap, BookOpen, Target, ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
@@ -142,6 +142,126 @@ export default function Home() {
                 </dd>
               </div>
             </dl>
+          </div>
+        </div>
+      </section>
+
+      {/* 支援メニュー */}
+      <section className="bg-gradient-to-b from-white to-gray-50 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-heading sm:text-4xl">
+              お子さまに合わせた支援メニュー
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-gray-600">
+              一人ひとりの個性と目標に合わせた多彩な支援プログラムをご用意
+            </p>
+          </div>
+          
+          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
+            {/* AI支援 */}
+            <Link href="/ai" className="group relative rounded-3xl bg-gradient-to-br from-purple-50 to-pink-50 p-8 shadow-lg ring-1 ring-purple-100 transition-all duration-300 hover:shadow-2xl hover:ring-purple-300 hover:-translate-y-1">
+              <div className="absolute top-4 right-4">
+                <span className="inline-flex items-center rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-3 py-1 text-xs font-medium text-white">
+                  NEW
+                </span>
+              </div>
+              <div className="mb-4 inline-flex rounded-xl bg-purple-100 p-3">
+                <Brain className="h-8 w-8 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">AIで学ぶ</h3>
+              <p className="text-gray-600 mb-4">
+                AIと一緒に「できた」を増やす。1対1個別とAIミニラボで創造力を育てます
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600 mb-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="h-4 w-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>プロンプトから始めるAI学習</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="h-4 w-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>ノーコード制作体験</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="h-4 w-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                  <span>かんたんPython入門</span>
+                </li>
+              </ul>
+              <div className="flex items-center text-purple-600 font-semibold group-hover:text-purple-700">
+                詳しく見る
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </div>
+            </Link>
+
+            {/* 高卒認定サポート */}
+            <Link href="/kounin" className="group relative rounded-3xl bg-gradient-to-br from-green-50 to-emerald-50 p-8 shadow-lg ring-1 ring-green-100 transition-all duration-300 hover:shadow-2xl hover:ring-green-300 hover:-translate-y-1">
+              <div className="mb-4 inline-flex rounded-xl bg-green-100 p-3">
+                <GraduationCap className="h-8 w-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">高卒認定サポート</h3>
+              <p className="text-gray-600 mb-4">
+                高卒認定試験合格への最短ルート。あなたの「今」から始める個別プラン
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600 mb-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>科目選択の戦略立案</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>効率的な学習計画</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>過去問徹底対策</span>
+                </li>
+              </ul>
+              <div className="flex items-center text-green-600 font-semibold group-hover:text-green-700">
+                詳しく見る
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </div>
+            </Link>
+
+            {/* 受験個別 */}
+            <Link href="/juken" className="group relative rounded-3xl bg-gradient-to-br from-blue-50 to-cyan-50 p-8 shadow-lg ring-1 ring-blue-100 transition-all duration-300 hover:shadow-2xl hover:ring-blue-300 hover:-translate-y-1">
+              <div className="mb-4 inline-flex rounded-xl bg-blue-100 p-3">
+                <BookOpen className="h-8 w-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">受験個別</h3>
+              <p className="text-gray-600 mb-4">
+                中学・高校・大学受験を1対1で。あなただけの合格プランを一緒に
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600 mb-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>志望校別の対策</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>基礎から応用まで</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>面接・小論文対策</span>
+                </li>
+              </ul>
+              <div className="flex items-center text-blue-600 font-semibold group-hover:text-blue-700">
+                詳しく見る
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </div>
+            </Link>
+          </div>
+
+          {/* ゴール設計へのリンク */}
+          <div className="mt-12 text-center">
+            <Link 
+              href="/goal-setting"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-50 to-orange-50 px-6 py-3 text-sm font-semibold text-orange-700 shadow-lg ring-1 ring-orange-200 transition-all duration-300 hover:shadow-xl hover:ring-orange-300"
+            >
+              <Target className="h-5 w-5" />
+              まずはゴール設計から始める
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>

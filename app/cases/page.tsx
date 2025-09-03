@@ -308,7 +308,7 @@ export default function CasesPage() {
             </div>
           ) : (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {filtered.map((item, index) => (
+              {filtered.map((item) => (
                 <article 
                   key={item.id} 
                   className="group relative rounded-2xl bg-gradient-to-br from-white to-gray-50 p-6 shadow-lg ring-1 ring-gray-200 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"

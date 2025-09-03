@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronDown, HelpCircle, Search, MessageCircle, Phone, Mail } from "lucide-react";
+import { ChevronDown, HelpCircle, Search, MessageCircle, Phone, Mail, DollarSign, School } from "lucide-react";
 
 // export const metadata: Metadata = {
 //   title: "よくある質問",
@@ -67,6 +66,16 @@ const faqs = [
     category: "support",
     question: "親の会やグループ活動はありますか？",
     answer: "保護者コミュニティ（月3,000円）で、月1回の勉強会や保護者同士の交流会を開催しています。同じ悩みを持つ保護者同士でつながることで、孤立感の軽減にもつながります。",
+  },
+  {
+    category: "support",
+    question: "AIを学校課題に使ってもいいですか？",
+    answer: "学校のルールを必ず確認してください。多くの学校では、AIツールの使用について独自のガイドラインを設けています。使用する場合は、出典を明記し、AIを使用したことを明確にすることが重要です。不明な場合は、必ず学校に確認してから使用してください。",
+  },
+  {
+    category: "school",
+    question: "AI学習で出席扱いになりますか？",
+    answer: "出席扱いは学校長の判断となります。当センターでは学習実態レポートを作成し、学習内容や時間、成果物などを記録します。このレポートを学校に提出し、相談することで出席扱いになる可能性があります。まずは学校と相談することをおすすめします。",
   },
 ];
 
@@ -304,41 +313,3 @@ export default function FAQPage() {
   );
 }
 
-// Icon components
-function DollarSign(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      viewBox="0 0 24 24"
-    >
-      <line x1="12" y1="1" x2="12" y2="23" />
-      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-    </svg>
-  );
-}
-
-function School(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      viewBox="0 0 24 24"
-    >
-      <path d="m4 6 8-4 8 4" />
-      <path d="m18 10 4 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8l4-2" />
-      <path d="M14 22v-4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v4" />
-      <path d="M18 5v17" />
-      <path d="M6 5v17" />
-      <circle cx="12" cy="9" r="2" />
-    </svg>
-  );
-}

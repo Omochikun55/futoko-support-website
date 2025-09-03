@@ -6,9 +6,47 @@ export const metadata: Metadata = {
   description: "みらいの学び場への相談・予約。48時間以内にメールにてご連絡いたします。",
 };
 
-export default function ContactPage() {
-  // Googleフォームの埋め込みURL
-  const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeZwmgpP_gRZf8YTTfJ0BwyQRN3uwmLRQtx4kpVBowQxw5X9Q/viewform";
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ type?: string; mode?: string }>;
+}) {
+  const params = await searchParams;
+  // Googleフォームの基本URL
+  const FORM_BASE = "https://docs.google.com/forms/d/e/1FAIpQLSeZwmgpP_gRZf8YTTfJ0BwyQRN3uwmLRQtx4kpVBowQxw5X9Q/viewform";
+  
+  // パラメータ用のエントリーID（後で実際のIDに置換）
+  const ENTRY_TYPE = "entry.111111"; // 支援タイプ（ai/kounin/juken）
+  const ENTRY_MODE = "entry.222222"; // 受講形式（online/onsite）
+  
+  // URLパラメータを構築
+  const buildFormUrl = () => {
+    const url = new URL(FORM_BASE);
+    url.searchParams.set("usp", "pp_url");
+    
+    if (params.type) {
+      const typeMap: Record<string, string> = {
+        ai: "AI学習支援",
+        kounin: "高卒認定サポート",
+        juken: "受験個別指導",
+      };
+      const typeValue = typeMap[params.type] || params.type;
+      url.searchParams.set(ENTRY_TYPE, typeValue);
+    }
+    
+    if (params.mode) {
+      const modeMap: Record<string, string> = {
+        online: "オンライン",
+        onsite: "通所",
+      };
+      const modeValue = modeMap[params.mode] || params.mode;
+      url.searchParams.set(ENTRY_MODE, modeValue);
+    }
+    
+    return url.toString();
+  };
+  
+  const googleFormUrl = buildFormUrl();
   
   return (
     <>

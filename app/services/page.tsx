@@ -189,6 +189,90 @@ export default function ServicesPage() {
                     </div>
                   </div>
                 </div>
+
+                {/* AI学習支援 */}
+                <div className="group/item rounded-xl bg-white/50 p-6 transition-all duration-300 hover:bg-white hover:shadow-md">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-[60px] h-[60px] rounded-lg shadow-md bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-2xl">
+                        🤖
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-gray-900 group-hover/item:text-primary transition-colors">
+                        4. AIで学ぶ <span className="text-sm font-normal text-blue-600 ml-2">New!</span>
+                      </h3>
+                      <p className="mt-2 text-gray-600">
+                        1対1個別とAIミニラボで創造力を育てる
+                      </p>
+                      <p className="mt-2 font-medium bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                        月2回15,000円〜／月4回18,000〜24,000円
+                      </p>
+                      <Link
+                        href="/ai"
+                        className="inline-block mt-3 text-sm text-blue-600 hover:text-blue-700 font-medium"
+                      >
+                        詳細を見る →
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 高卒認定サポート */}
+                <div className="group/item rounded-xl bg-white/50 p-6 transition-all duration-300 hover:bg-white hover:shadow-md">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-[60px] h-[60px] rounded-lg shadow-md bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center text-white text-2xl">
+                        📚
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-gray-900 group-hover/item:text-primary transition-colors">
+                        5. 高卒認定サポート
+                      </h3>
+                      <p className="mt-2 text-gray-600">
+                        計画設計と過去問ルーティンで伴走
+                      </p>
+                      <p className="mt-2 font-medium bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+                        月4回28,000〜38,000円
+                      </p>
+                      <Link
+                        href="/kounin"
+                        className="inline-block mt-3 text-sm text-green-600 hover:text-green-700 font-medium"
+                      >
+                        詳細を見る →
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 受験個別 */}
+                <div className="group/item rounded-xl bg-white/50 p-6 transition-all duration-300 hover:bg-white hover:shadow-md">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-[60px] h-[60px] rounded-lg shadow-md bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center text-white text-2xl">
+                        🎯
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-gray-900 group-hover/item:text-primary transition-colors">
+                        6. 受験個別
+                      </h3>
+                      <p className="mt-2 text-gray-600">
+                        基礎から着実に、あなたのペースで受験準備
+                      </p>
+                      <p className="mt-2 font-medium bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                        月4回20,000〜28,000円
+                      </p>
+                      <Link
+                        href="/juken"
+                        className="inline-block mt-3 text-sm text-purple-600 hover:text-purple-700 font-medium"
+                      >
+                        詳細を見る →
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
               </div>
             </div>

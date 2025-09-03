@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { Video, Wifi, Calendar, Shield, Home, Headphones, CheckCircle, Clock } from "lucide-react";
+import { Video, Wifi, Calendar, Shield, Home, Headphones, CheckCircle, Clock, Users, Star, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "オンライン支援",
-  description: "全国どこからでも参加できるオンライン不登校支援。1対1の個別サポートから少人数グループまで、お子さまに合わせた支援を提供。",
+  title: "オンライン支援（1対1個別が基本）",
+  description: "全国どこからでも参加できるオンライン不登校支援。まずは1対1の個別サポートから始めて、お子さまのペースに合わせた支援を提供。",
 };
 
 export default function OnlinePage() {
@@ -20,14 +19,17 @@ export default function OnlinePage() {
           <div className="mx-auto max-w-2xl text-center">
             <div className="animate-fadeIn">
               <Wifi className="mx-auto h-12 w-12 text-purple-600 mb-6" />
-              <h1 className="text-4xl font-bold tracking-tight text-heading sm:text-5xl">
+              <h1 className="text-4xl font-bold tracking-tight text-heading sm:text-5xl leading-[1.2] [text-wrap:balance] [line-break:strict]">
                 オンライン支援
+                <span className="block text-2xl sm:text-3xl mt-2 text-purple-600">1対1個別が基本</span>
               </h1>
             </div>
             <p className="animate-fadeIn mt-6 text-lg leading-8 text-gray-600" style={{ animationDelay: '0.2s' }}>
               自宅から安心して参加できる
               <br />
               全国対応の不登校支援プログラム
+              <br />
+              <span className="text-sm mt-2 inline-block">まずは1対1から始めて、段階的にステップアップ</span>
             </p>
           </div>
         </div>
@@ -130,29 +132,36 @@ export default function OnlinePage() {
             </div>
 
             {/* 少人数グループ */}
-            <div className="rounded-2xl bg-white p-8 shadow-lg">
+            <div className="rounded-2xl bg-white p-8 shadow-lg relative">
+              <div className="absolute top-4 right-4 px-3 py-1 bg-amber-100 text-amber-700 text-xs font-medium rounded-full">
+                準備中
+              </div>
               <div className="flex items-center gap-4 mb-6">
                 <div className="rounded-xl bg-pink-100 p-3">
                   <Users className="h-6 w-6 text-pink-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">少人数グループ活動</h3>
               </div>
-              <ul className="space-y-3">
+              <p className="text-sm text-gray-600 mb-4 p-3 bg-amber-50 rounded-lg">
+                <strong>※グループ活動はプラットフォーム整備後に小規模から開始予定です。</strong>
+                <br />まずは1対1から始めて、お子様の状態に合わせてグループ参加をご提案します。
+              </p>
+              <ul className="space-y-3 opacity-75">
                 <li className="flex gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-600">オンラインゲーム会</span>
+                  <CheckCircle className="h-5 w-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-500">オンラインゲーム会</span>
                 </li>
                 <li className="flex gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-600">読書会・アニメ鑑賞会</span>
+                  <CheckCircle className="h-5 w-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-500">読書会・アニメ鑑賞会</span>
                 </li>
                 <li className="flex gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-600">創作活動の共有会</span>
+                  <CheckCircle className="h-5 w-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-500">創作活動の共有会</span>
                 </li>
                 <li className="flex gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-600">テーマトーク（2-4名程度）</span>
+                  <CheckCircle className="h-5 w-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-500">テーマトーク（2-4名程度）</span>
                 </li>
               </ul>
             </div>
@@ -464,57 +473,3 @@ export default function OnlinePage() {
   );
 }
 
-// Star icon component
-function Star(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      viewBox="0 0 24 24"
-    >
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-    </svg>
-  );
-}
-
-// Users icon component
-function Users(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      viewBox="0 0 24 24"
-    >
-      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-      <circle cx="9" cy="7" r="4" />
-      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-    </svg>
-  );
-}
-
-// ArrowRight icon component
-function ArrowRight(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      viewBox="0 0 24 24"
-    >
-      <line x1="5" y1="12" x2="19" y2="12" />
-      <polyline points="12 5 19 12 12 19" />
-    </svg>
-  );
-}

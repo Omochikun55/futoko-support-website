@@ -92,6 +92,17 @@ export default function AssessmentPage() {
               </div>
             </div>
 
+            {/* CTA Button - Added above pricing section */}
+            <div className="mt-12 text-center">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-primary to-accent px-8 py-4 text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              >
+                無料相談から始める
+              </Link>
+              <p className="mt-3 text-sm text-gray-600">まずは無料相談でお話をお聞かせください</p>
+            </div>
+
             <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2">
               <div className="group relative rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-50 p-8 shadow-xl ring-1 ring-blue-100 transition-all duration-300 hover:shadow-2xl hover:scale-105">
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-100/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

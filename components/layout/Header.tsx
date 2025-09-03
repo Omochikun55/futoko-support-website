@@ -2,12 +2,21 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { Menu, X, Phone } from 'lucide-react'
+import { Menu, X, Phone, ChevronDown } from 'lucide-react'
 
 const navigation = [
-  { name: '支援メニュー', href: '/services' },
+  { 
+    name: '支援メニュー', 
+    href: '/services',
+    dropdown: [
+      { name: 'AIで学ぶ', href: '/ai', isNew: true },
+      { name: '高卒認定サポート', href: '/kounin' },
+      { name: '受験個別', href: '/juken' },
+    ]
+  },
   { name: 'オンライン支援', href: '/online' },
   { name: '初回相談・見立て', href: '/assessment' },
+  { name: 'ゴール設計', href: '/goal-setting' },
   { name: '実例と歩み', href: '/cases' },
   { name: '料金・プラン', href: '/pricing' },
   { name: '保護者さま向け', href: '/parents' },
@@ -17,6 +26,7 @@ const navigation = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50 backdrop-blur-md bg-white/95">
@@ -31,17 +41,58 @@ export default function Header() {
           
           <div className="hidden lg:flex lg:items-center lg:space-x-6">
             {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-sm font-medium text-gray-700 hover:text-primary transition-colors"
-              >
-                {item.name}
-              </Link>
+              item.dropdown ? (
+                <div key={item.name} className="relative">
+                  <button
+                    className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-primary transition-colors"
+                    onMouseEnter={() => setOpenDropdown(item.name)}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    {item.name}
+                    <ChevronDown className="h-3 w-3" />
+                  </button>
+                  <div
+                    className={`absolute top-full left-0 mt-1 w-48 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition-all duration-200 ${
+                      openDropdown === item.name ? 'opacity-100 visible' : 'opacity-0 invisible'
+                    }`}
+                    onMouseEnter={() => setOpenDropdown(item.name)}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    <div className="py-1">
+                      <Link
+                        href={item.href}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        すべて見る
+                      </Link>
+                      {item.dropdown.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          href={subItem.href}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          {subItem.name}
+                          {subItem.isNew && (
+                            <span className="ml-2 text-xs font-semibold text-blue-600">New!</span>
+                          )}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-medium text-gray-700 hover:text-primary transition-colors"
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
             <div className="ml-6 flex items-center gap-4 border-l pl-6">
               <a
-                href="tel:011-123-4567"
+                href="tel:0111234567"
                 className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-primary transition-colors"
                 aria-label="電話で問い合わせる"
               >
@@ -92,19 +143,37 @@ export default function Header() {
             <div className="-my-6 divide-y divide-gray-200">
               <div className="space-y-2 py-6">
                 {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 transition-colors duration-200"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
+                  <div key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="-mx-3 block rounded-lg px-3 py-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 transition-colors duration-200"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                    {item.dropdown && (
+                      <div className="ml-6 mt-2 space-y-2">
+                        {item.dropdown.map((subItem) => (
+                          <Link
+                            key={subItem.name}
+                            href={subItem.href}
+                            className="-mx-3 block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 transition-colors duration-200"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {subItem.name}
+                            {subItem.isNew && (
+                              <span className="ml-2 text-xs font-semibold text-blue-600">New!</span>
+                            )}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
               <div className="py-6 space-y-4">
                 <a
-                  href="tel:011-123-4567"
+                  href="tel:0111234567"
                   className="flex items-center justify-center gap-2 rounded-md bg-gray-100 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-200 transition-colors duration-200"
                   onClick={() => setMobileMenuOpen(false)}
                 >

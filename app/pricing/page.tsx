@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Check, DollarSign, Zap, Heart, Star, Info, Calculator } from "lucide-react";
+import { Check, DollarSign, Zap, Heart, Star, Info, Calculator, CheckCircle, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "料金・プラン",
@@ -39,20 +39,47 @@ export default function PricingPage() {
               <Info className="h-6 w-6 text-amber-600 mr-2" />
               おすすめの選び方
             </h2>
-            <div className="space-y-3 text-sm text-gray-700">
-              <div className="flex items-start gap-3">
-                <span className="flex-shrink-0 font-bold text-primary">制度利用：</span>
-                <span>発達特性の診断がある、または医師の意見書が取得できる方。費用負担を抑えて継続的な支援を受けたい方。</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="flex-shrink-0 font-bold text-purple-600">実費利用：</span>
-                <span>診断がない・受給者証の取得が難しい方。まずは短期間で試したい方。オンライン中心で進めたい方。</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="flex-shrink-0 font-bold text-green-600">遠方の方：</span>
-                <span>札幌市外・道外の方はオンライン支援をご利用ください。初回相談もオンラインで実施可能です。</span>
-              </div>
-            </div>
+            <ul className="space-y-4 text-sm">
+              <li className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">制度利用をおすすめの方</p>
+                  <p className="text-gray-700">発達特性の診断がある、または医師の意見書が取得できる方。費用負担を抑えて継続的な支援を受けたい方。</p>
+                  <Link href="/voucher-guide" className="inline-flex items-center gap-1 mt-2 text-primary hover:text-blue-700 font-medium">
+                    受給者証ガイドを見る
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">実費利用をおすすめの方</p>
+                  <p className="text-gray-700">診断がない・受給者証の取得が難しい方。まずは短期間で試したい方。オンライン中心で進めたい方。</p>
+                  <div className="flex gap-4 mt-2">
+                    <Link href="/online" className="inline-flex items-center gap-1 text-purple-600 hover:text-purple-700 font-medium">
+                      オンライン支援
+                      <ArrowRight className="h-3 w-3" />
+                    </Link>
+                    <Link href="/services" className="inline-flex items-center gap-1 text-purple-600 hover:text-purple-700 font-medium">
+                      支援メニュー
+                      <ArrowRight className="h-3 w-3" />
+                    </Link>
+                  </div>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">遠方の方</p>
+                  <p className="text-gray-700">札幌市外・道外の方はオンライン支援をご利用ください。初回相談もオンラインで実施可能です。</p>
+                  <Link href="/online" className="inline-flex items-center gap-1 mt-2 text-green-600 hover:text-green-700 font-medium">
+                    オンライン支援詳細
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
+                </div>
+              </li>
+            </ul>
             <div className="mt-6 pt-6 border-t border-amber-200">
               <p className="text-xs text-gray-600">
                 ※ どちらが適しているか分からない場合は、初回無料相談でご案内します。まずはお気軽にご連絡ください。
