@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import ServiceStructuredData from "@/components/ServiceStructuredData";
 
 export const metadata: Metadata = {
   title: "高卒認定サポート | 不登校支援センター",
@@ -9,6 +10,11 @@ export const metadata: Metadata = {
 export default function KouninPage() {
   return (
     <main className="min-h-screen">
+      <ServiceStructuredData
+        serviceName="高卒認定サポート"
+        description="高卒認定試験合格への最短ルート。あなたの「今」から始める個別プラン。"
+        price="11000"
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-b from-white to-green-50">
         <div className="mx-auto max-w-7xl px-4 py-16 md:py-24">

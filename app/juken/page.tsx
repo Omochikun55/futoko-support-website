@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import ServiceStructuredData from "@/components/ServiceStructuredData";
 
 export const metadata: Metadata = {
   title: "受験個別 | 不登校支援センター",
@@ -9,6 +10,11 @@ export const metadata: Metadata = {
 export default function JukenPage() {
   return (
     <main className="min-h-screen">
+      <ServiceStructuredData
+        serviceName="受験個別指導"
+        description="中学・高校・大学受験を1対1で。あなただけの合格プランを一緒に作ります。"
+        price="16500"
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-b from-white to-purple-50">
         <div className="mx-auto max-w-7xl px-4 py-16 md:py-24">

@@ -143,7 +143,7 @@ export default function VoucherGuidePage() {
                   </p>
                   <div className="flex items-center gap-2 text-sm text-gray-600">
                     <Clock className="h-4 w-4" />
-                    <span>審査期間：約2〜4週間</span>
+                    <span className="font-bold">審査期間：約2〜4週間</span>
                   </div>
                 </div>
               </div>
@@ -275,7 +275,7 @@ export default function VoucherGuidePage() {
                   Q. 申請から交付までどのくらいかかりますか？
                 </h3>
                 <p className="text-gray-600">
-                  A. 通常2〜4週間程度ですが、書類の不備や追加確認が必要な場合は
+                  A. 通常<strong>2〜4週間程度</strong>ですが、書類の不備や追加確認が必要な場合は
                   もう少し時間がかかることがあります。
                 </p>
               </div>
@@ -311,12 +311,19 @@ export default function VoucherGuidePage() {
             <h2 className="text-3xl font-bold text-heading mb-6">
               まずは無料相談から
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-lg text-gray-600 mb-4">
               受給者証の取得についてご不明な点があれば、
               <br />
               お気軽にご相談ください。
               <br />
               <strong>必要に応じて医療機関との連携もサポートします。</strong>
+            </p>
+            <p className="text-sm text-gray-600 mb-8">
+              受給者証を利用しない場合の料金プランについては
+              <Link href="/pricing" className="text-primary hover:underline font-medium">
+                料金・プランページ
+              </Link>
+              をご覧ください。
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import ServiceStructuredData from "@/components/ServiceStructuredData";
 
 export const metadata: Metadata = {
   title: "AIで学ぶ | 不登校支援センター",
@@ -9,6 +10,11 @@ export const metadata: Metadata = {
 export default function AIPage() {
   return (
     <main className="min-h-screen">
+      <ServiceStructuredData
+        serviceName="AI学習支援"
+        description="AIと一緒に「できた」を増やす。1対1個別とAIミニラボで、子どもたちの創造力を育てます。"
+        price="5500"
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-b from-white to-sky-50">
         <div className="mx-auto max-w-7xl px-4 py-16 md:py-24">
@@ -234,6 +240,46 @@ export default function AIPage() {
               <p className="text-slate-700">週6〜8コマ</p>
               <p className="text-sm text-slate-500 mt-2">※ 埋まり具合により変動します</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 作品ギャラリー */}
+      <section className="py-16 bg-gradient-to-b from-white to-gray-50">
+        <div className="mx-auto max-w-4xl px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">作品ギャラリー</h2>
+          
+          {/* サンプル作品 */}
+          <div className="bg-white rounded-2xl overflow-hidden shadow-lg mb-8">
+            <div className="aspect-video bg-gradient-to-br from-purple-100 to-pink-100 p-8 flex items-center justify-center">
+              <div className="text-center">
+                <div className="mb-4">
+                  <svg className="w-20 h-20 mx-auto text-purple-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">AIで作った物語ゲーム</h3>
+                <p className="text-sm text-gray-600">
+                  ChatGPTと一緒に作った冒険物語。
+                  <br />
+                  プロンプトの工夫で、自分だけのストーリーが完成！
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <a
+              href="https://pro-ai.jp/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold"
+            >
+              もっと多くの作品を見る
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
