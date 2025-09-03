@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { Clock, FileText, Target, CheckCircle, Sparkles, ListChecks, CreditCard } from "lucide-react";
+import { Clock, FileText, Target, CheckCircle, Sparkles, CreditCard } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "初回相談・見立て（アセスメント）",

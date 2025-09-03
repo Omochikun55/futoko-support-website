@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { CheckCircle, Users, School, Sparkles, Heart, BookOpen } from "lucide-react";
+import { CheckCircle, Users, School, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "支援メニュー",

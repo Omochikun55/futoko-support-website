@@ -34,7 +34,17 @@ export default function Home() {
                   </p>
                   <p className="mt-4 text-sm text-gray-600">（札幌/オンライン対応）</p>
                 </div>
-                <div className="animate-fadeIn mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6" style={{ animationDelay: '0.4s' }}>
+                
+                {/* 相談の流れを1行で */}
+                <div className="animate-fadeIn mt-6 p-4 rounded-xl bg-blue-50/50 border border-blue-100" style={{ animationDelay: '0.3s' }}>
+                  <p className="text-sm sm:text-base text-slate-700 text-center">
+                    初回は<strong className="text-primary">30-45分の無料相談</strong> → 
+                    必要に応じ<strong className="text-primary">有料アセスメント</strong> → 
+                    <strong className="text-primary">最適プラン</strong>をご提案します
+                  </p>
+                </div>
+                
+                <div className="animate-fadeIn mt-6 flex flex-col sm:flex-row gap-4 sm:gap-6" style={{ animationDelay: '0.4s' }}>
                   <Link
                     href="/contact"
                     className="btn-primary group relative overflow-hidden rounded-full bg-primary px-8 py-4 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:bg-blue-700 hover:shadow-xl hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
