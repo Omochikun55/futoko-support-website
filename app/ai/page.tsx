@@ -27,6 +27,11 @@ export default function AIPage() {
                 プロンプトから始めるAI学習、ノーコード制作、かんたんPythonまで。
                 <b>1対1個別</b>と<b>放デイ内ミニラボ</b>の両輪で、できたを積み上げます。
               </p>
+              <div className="mt-4 p-3 bg-amber-50 rounded-lg border border-amber-200">
+                <p className="text-sm text-amber-900">
+                  <strong>📌 現在は1対1の個別サポートが基本です</strong> - お子さまのペースに合わせて、じっくりとAI学習をサポートします。グループセッションは準備中です。
+                </p>
+              </div>
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/contact?type=ai"

@@ -257,10 +257,10 @@ export default function FAQPage() {
                 <h3 className="font-semibold text-gray-900 mb-2">お電話</h3>
                 <p className="text-sm text-gray-600 mb-3">平日 9:00-18:00</p>
                 <a
-                  href="tel:011-xxxx-xxxx"
+                  href="tel:0111234567"
                   className="text-primary hover:text-blue-700 font-medium"
                 >
-                  011-xxxx-xxxx
+                  011-123-4567
                 </a>
               </div>
 

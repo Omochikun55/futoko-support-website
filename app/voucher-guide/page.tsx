@@ -328,7 +328,7 @@ export default function VoucherGuidePage() {
                 <ArrowRight className="h-5 w-5" />
               </Link>
               <a
-                href="tel:011-xxxx-xxxx"
+                href="tel:0111234567"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-gray-700 shadow-md ring-1 ring-gray-200 hover:shadow-lg hover:ring-primary transition-all duration-300"
               >
                 <Phone className="h-5 w-5" />

@@ -15,6 +15,21 @@ body {
   font-family: var(--font-noto-sans-jp);
 }
 
+/* Typography improvements for Japanese text */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  text-wrap: balance;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+p {
+  line-height: 1.8;
+  text-wrap: pretty;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;

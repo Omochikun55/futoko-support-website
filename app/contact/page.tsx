@@ -15,9 +15,9 @@ export default async function ContactPage({
   // Googleフォームの基本URL
   const FORM_BASE = "https://docs.google.com/forms/d/e/1FAIpQLSeZwmgpP_gRZf8YTTfJ0BwyQRN3uwmLRQtx4kpVBowQxw5X9Q/viewform";
   
-  // パラメータ用のエントリーID（後で実際のIDに置換）
-  const ENTRY_TYPE = "entry.111111"; // 支援タイプ（ai/kounin/juken）
-  const ENTRY_MODE = "entry.222222"; // 受講形式（online/onsite）
+  // パラメータ用のエントリーID（実際のGoogleフォームのIDに合わせて更新が必要）
+  const ENTRY_TYPE = "entry.123456789"; // 支援タイプ（ai/kounin/juken）
+  const ENTRY_MODE = "entry.987654321"; // 受講形式（online/onsite）
   
   // URLパラメータを構築
   const buildFormUrl = () => {
@@ -162,7 +162,7 @@ export default async function ContactPage({
                     <Mail className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
                   </a>
                   <a
-                    href="tel:011-123-4567"
+                    href="tel:0111234567"
                     className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-green-50 to-emerald-50 px-6 py-3 text-sm font-semibold text-gray-700 shadow-md ring-1 ring-green-200 hover:shadow-lg hover:ring-2 hover:ring-green-300 transition-all duration-300 transform hover:scale-105"
                   >
                     <Phone className="h-4 w-4 text-green-600 transition-transform duration-300 group-hover:rotate-12" />
