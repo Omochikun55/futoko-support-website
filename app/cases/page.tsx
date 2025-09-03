@@ -347,7 +347,7 @@ export default function CasesPage() {
                           return (
                             <div key={idx} className="flex items-start gap-2">
                               {timeChip && (
-                                <span className="inline-flex items-center rounded px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 ring-1 ring-gray-200 whitespace-nowrap">
+                                <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-700 ring-1 ring-blue-200 whitespace-nowrap shadow-sm">
                                   {timeChip}
                                 </span>
                               )}

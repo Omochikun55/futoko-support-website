@@ -31,6 +31,37 @@ export default function PricingPage() {
         </div>
       </section>
 
+      {/* おすすめの選び方 */}
+      <section className="py-12 bg-gradient-to-b from-white to-gray-50">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8">
+          <div className="rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 p-8 shadow-lg ring-1 ring-amber-100">
+            <h2 className="flex items-center text-xl font-bold text-gray-900 mb-4">
+              <Info className="h-6 w-6 text-amber-600 mr-2" />
+              おすすめの選び方
+            </h2>
+            <div className="space-y-3 text-sm text-gray-700">
+              <div className="flex items-start gap-3">
+                <span className="flex-shrink-0 font-bold text-primary">制度利用：</span>
+                <span>発達特性の診断がある、または医師の意見書が取得できる方。費用負担を抑えて継続的な支援を受けたい方。</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="flex-shrink-0 font-bold text-purple-600">実費利用：</span>
+                <span>診断がない・受給者証の取得が難しい方。まずは短期間で試したい方。オンライン中心で進めたい方。</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="flex-shrink-0 font-bold text-green-600">遠方の方：</span>
+                <span>札幌市外・道外の方はオンライン支援をご利用ください。初回相談もオンラインで実施可能です。</span>
+              </div>
+            </div>
+            <div className="mt-6 pt-6 border-t border-amber-200">
+              <p className="text-xs text-gray-600">
+                ※ どちらが適しているか分からない場合は、初回無料相談でご案内します。まずはお気軽にご連絡ください。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 3段カードセクション */}
       <section className="py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">

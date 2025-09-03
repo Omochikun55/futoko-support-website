@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ExternalLink, Mail, Clock, Shield } from "lucide-react";
+import { ExternalLink, Mail, Clock, Shield, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "相談・予約",
@@ -111,17 +111,24 @@ export default function ContactPage() {
                     href={googleFormUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-blue-700 transition-all duration-300 hover:shadow-xl"
+                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                   >
                     <span>Googleフォームを開く</span>
-                    <ExternalLink className="h-4 w-4" />
+                    <ExternalLink className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </a>
                   <a
-                    href="mailto:info@example.jp?subject=不登校支援のご相談&body=【保護者様のお名前】%0D%0A%0D%0A【お子様の学年】%0D%0A%0D%0A【ご相談内容】%0D%0A"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-gray-700 shadow-md ring-1 ring-gray-200 hover:shadow-lg hover:ring-primary transition-all duration-300"
+                    href="mailto:info@minioffice.jp?subject=不登校支援のご相談&body=【保護者様のお名前】%0D%0A%0D%0A【お子様の学年】%0D%0A%0D%0A【ご相談内容】%0D%0A"
+                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-gray-700 shadow-md ring-1 ring-gray-200 hover:shadow-lg hover:ring-2 hover:ring-primary/50 transition-all duration-300 transform hover:scale-105"
                   >
                     <span>メールで相談</span>
-                    <Mail className="h-4 w-4" />
+                    <Mail className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
+                  </a>
+                  <a
+                    href="tel:011-123-4567"
+                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-green-50 to-emerald-50 px-6 py-3 text-sm font-semibold text-gray-700 shadow-md ring-1 ring-green-200 hover:shadow-lg hover:ring-2 hover:ring-green-300 transition-all duration-300 transform hover:scale-105"
+                  >
+                    <Phone className="h-4 w-4 text-green-600 transition-transform duration-300 group-hover:rotate-12" />
+                    <span>電話で相談</span>
                   </a>
                 </div>
               </div>

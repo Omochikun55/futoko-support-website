@@ -116,8 +116,34 @@ export default function Footer() {
           </div>
         </div>
         
-        {/* 緊急連絡先 */}
+        {/* 運営会社情報 */}
         <div className="mt-16 border-t border-gray-900/10 pt-8">
+          <div className="bg-gray-100 rounded-lg p-6 mb-8">
+            <h3 className="text-sm font-semibold text-gray-900 mb-3">運営会社</h3>
+            <div className="grid gap-2 text-sm text-gray-700">
+              <p>
+                <span className="font-medium">会社名:</span> 合同会社ミニオフィス
+              </p>
+              <p>
+                <span className="font-medium">所在地:</span> 北海道札幌市
+              </p>
+              <p>
+                <span className="font-medium">事業内容:</span> 不登校支援事業、放課後等デイサービス運営
+              </p>
+              <p>
+                <span className="font-medium">法人番号:</span>{" "}
+                <a 
+                  href="https://www.houjin-bangou.nta.go.jp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:text-blue-700"
+                >
+                  国税庁法人番号公表サイトで確認
+                </a>
+              </p>
+            </div>
+          </div>
+          
           <div className="bg-amber-50 rounded-lg p-6">
             <h3 className="text-sm font-semibold text-amber-900 mb-3">緊急時の相談窓口</h3>
             <div className="grid gap-2 text-sm text-amber-800">

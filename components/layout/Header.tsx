@@ -41,12 +41,12 @@ export default function Header() {
             ))}
             <div className="ml-6 flex items-center gap-4 border-l pl-6">
               <a
-                href="tel:011-xxxx-xxxx"
+                href="tel:011-123-4567"
                 className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-primary transition-colors"
                 aria-label="電話で問い合わせる"
               >
                 <Phone className="h-4 w-4" />
-                <span className="hidden xl:inline">011-xxxx-xxxx</span>
+                <span className="hidden xl:inline">011-123-4567</span>
               </a>
               <Link
                 href="/contact"
@@ -104,12 +104,12 @@ export default function Header() {
               </div>
               <div className="py-6 space-y-4">
                 <a
-                  href="tel:011-xxxx-xxxx"
+                  href="tel:011-123-4567"
                   className="flex items-center justify-center gap-2 rounded-md bg-gray-100 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-200 transition-colors duration-200"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <Phone className="h-4 w-4" />
-                  011-xxxx-xxxx
+                  011-123-4567
                 </a>
                 <Link
                   href="/contact"
