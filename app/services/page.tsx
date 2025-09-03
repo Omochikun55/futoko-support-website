@@ -36,6 +36,102 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* 選び方ガイド Decision Tree */}
+      <section className="py-16 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-2xl font-bold text-center text-heading mb-8">どちらが適している？</h2>
+            
+            {/* Decision Tree */}
+            <div className="space-y-6">
+              {/* 制度利用が向いている方 */}
+              <div className="bg-green-50 rounded-xl p-6 border-2 border-green-200">
+                <h3 className="font-bold text-green-900 mb-3">
+                  ✅ 制度利用（放課後等デイ）が向いている方
+                </h3>
+                <ul className="space-y-2 text-green-800">
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 mt-1">•</span>
+                    <span>発達面の継続的な支援が必要</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 mt-1">•</span>
+                    <span>感覚過敏やこだわりが強い</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 mt-1">•</span>
+                    <span>医療機関の診断がある</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 mt-1">•</span>
+                    <span>費用面で公的支援を希望</span>
+                  </li>
+                </ul>
+                <div className="mt-4 pt-4 border-t border-green-200">
+                  <Link
+                    href="/welfare"
+                    className="inline-flex items-center gap-2 text-green-700 font-medium hover:text-green-800"
+                  >
+                    制度による支援の詳細 →
+                  </Link>
+                </div>
+              </div>
+
+              {/* 実費型が向いている方 */}
+              <div className="bg-blue-50 rounded-xl p-6 border-2 border-blue-200">
+                <h3 className="font-bold text-blue-900 mb-3">
+                  ✅ 実費型サービスが向いている方
+                </h3>
+                <ul className="space-y-2 text-blue-800">
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 mt-1">•</span>
+                    <span>受給者証なしですぐ始めたい</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 mt-1">•</span>
+                    <span>特定の目標（受験・高認など）がある</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 mt-1">•</span>
+                    <span>柔軟なスケジュールを希望</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 mt-1">•</span>
+                    <span>AIなど最新の学習方法に興味</span>
+                  </li>
+                </ul>
+                <div className="mt-4 pt-4 border-t border-blue-200">
+                  <Link
+                    href="/pricing"
+                    className="inline-flex items-center gap-2 text-blue-700 font-medium hover:text-blue-800"
+                  >
+                    料金プランを見る →
+                  </Link>
+                </div>
+              </div>
+
+              {/* わからない場合 */}
+              <div className="bg-amber-50 rounded-xl p-6 border border-amber-200">
+                <p className="text-amber-900">
+                  <strong>💡 どちらか迷う場合</strong>
+                  <br />
+                  まずは初回相談（無料）で状況をお聞きし、最適な支援方法をご提案します。
+                  両方の併用も可能です。
+                </p>
+                <div className="mt-4">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 text-amber-700 font-medium hover:text-amber-800"
+                  >
+                    無料相談を予約 →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 制度利用サービス */}
       <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
