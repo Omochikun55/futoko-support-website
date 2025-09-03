@@ -22,6 +22,7 @@ const navigation = [
   { name: '料金・プラン', href: '/pricing' },
   { name: '受給者証ガイド', href: '/voucher-guide' },
   { name: '保護者さま向け', href: '/parents' },
+  { name: 'コラム', href: '/columns' },
   { name: '私たちについて', href: '/about' },
   { name: 'よくある質問', href: '/faq' },
 ]
