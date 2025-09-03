@@ -42,6 +42,13 @@ export default function ServicesPage() {
           <div className="mx-auto max-w-3xl">
             <h2 className="text-2xl font-bold text-center text-heading mb-8">どちらが適している？</h2>
             
+            {/* 制度への誘導 */}
+            <div className="mb-6 p-4 bg-amber-50 rounded-lg border border-amber-200">
+              <p className="text-amber-900">
+                <strong>制度による支援（受給者証が必要）</strong>は、<a href="/welfare" className="underline hover:text-amber-700">こちら</a>をご覧ください。
+              </p>
+            </div>
+            
             {/* Decision Tree */}
             <div className="space-y-6">
               {/* 制度利用が向いている方 */}

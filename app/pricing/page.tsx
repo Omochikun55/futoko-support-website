@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Check, DollarSign, Zap, Heart, Star, Info, CheckCircle, ArrowRight, Shield, AlertCircle } from "lucide-react";
+import { Check, DollarSign, Zap, Heart, Star, Info, CheckCircle, ArrowRight, Shield, AlertCircle, ExternalLink } from "lucide-react";
+import { PROLAB_SITE, PROLAB_VISIT_URL, UTM } from "@/app/config";
 
 export default function PricingPage() {
   const [activeTab, setActiveTab] = useState<"fee" | "institutional">("fee");
@@ -308,6 +309,32 @@ export default function PricingPage() {
                   不安感が強い／生活リズムの大きな乱れ／感覚過敏などがある場合は
                   <strong>対象となる可能性があります</strong>。
                 </p>
+              </div>
+              
+              {/* ぷろらぼへのリンク */}
+              <div className="p-4 bg-blue-50 rounded-lg border border-blue-200 mb-6">
+                <p className="text-blue-900 font-medium mb-3">運営拠点：ぷろらぼ</p>
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href={`${PROLAB_VISIT_URL}${UTM}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+                  >
+                    見学を予約
+                    <ExternalLink className="h-4 w-4 opacity-80" />
+                  </a>
+                  <a
+                    href={`${PROLAB_SITE}${UTM}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-lg ring-1 ring-blue-600 px-4 py-2 text-sm font-medium text-blue-700 hover:bg-blue-50 transition-colors"
+                  >
+                    ぷろらぼ公式サイト
+                    <ExternalLink className="h-4 w-4 opacity-80" />
+                  </a>
+                </div>
+                <p className="mt-2 text-xs text-slate-500">※外部サイトへ移動します</p>
               </div>
               
               <h3 className="font-semibold text-gray-900 mb-4">自己負担</h3>
