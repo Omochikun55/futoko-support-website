@@ -3,7 +3,7 @@
 import React, { useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Search, Filter, Calendar, Users, Star, ArrowRight } from "lucide-react";
+import { Search, Filter, Calendar, Users, Star, ArrowRight, CheckCircle } from "lucide-react";
 
 // 型定義
 interface CaseItem {
@@ -15,6 +15,7 @@ interface CaseItem {
   currentStatus: string;
   supports: string[];
   participation?: string[];
+  achievements?: string[];
 }
 
 const CASES: CaseItem[] = [
@@ -30,6 +31,7 @@ const CASES: CaseItem[] = [
     ],
     currentStatus: "新しい環境で過ごしながら、継続的に支援利用中。",
     supports: ["放課後等デイサービス"],
+    achievements: ["支援の手厚い中学への進学", "継続的な支援の利用", "新環境への適応"],
   },
   {
     id: "c2",
@@ -42,6 +44,7 @@ const CASES: CaseItem[] = [
     ],
     currentStatus: "通常級に在籍しつつ、別室登校を継続。",
     supports: ["放課後等デイサービス"],
+    achievements: ["別室登校の実現", "支援の場での安定した活動", "学校とのつながり維持"],
   },
   {
     id: "c3",
@@ -54,6 +57,7 @@ const CASES: CaseItem[] = [
     ],
     currentStatus: "家庭と支援の場を行き来しながら、活動時間の安定を目指している。",
     supports: ["放課後等デイサービス"],
+    achievements: ["生活リズムの改善", "支援の場への定期通所", "活動時間の安定化"],
   },
   {
     id: "c4",
@@ -67,6 +71,7 @@ const CASES: CaseItem[] = [
     currentStatus: "放課後等デイサービスを継続利用中。",
     supports: ["放課後等デイサービス"],
     participation: ["運動会", "修学旅行"],
+    achievements: ["大きな行事への参加", "友達との思い出作り", "自分のペースでの参加"],
   },
   {
     id: "c5",
@@ -81,6 +86,7 @@ const CASES: CaseItem[] = [
     currentStatus: "支援の場を活用しながら、家庭・学校外の活動を継続。",
     supports: ["地域の支援センター", "放課後等デイサービス"],
     participation: ["運動会", "修学旅行"],
+    achievements: ["複数の支援機関の活用", "大きな行事への参加", "地域とのつながり"],
   },
   {
     id: "c6",
@@ -95,6 +101,7 @@ const CASES: CaseItem[] = [
     currentStatus: "日中の活動機会の確保と、体力・生活リズムの安定に取り組み中。",
     supports: ["地域の支援センター", "放課後等デイサービス"],
     participation: ["運動会"],
+    achievements: ["体力の維持・向上", "日中活動の確保", "社会的なつながりの維持"],
   },
   {
     id: "c7",
@@ -108,6 +115,7 @@ const CASES: CaseItem[] = [
     ],
     currentStatus: "現在も通学は難しいが、支援の場での活動は継続。",
     supports: ["放課後等デイサービス"],
+    achievements: ["長期的な支援の継続", "居場所の確保", "成長に合わせた支援"],
   },
 ];
 
@@ -330,14 +338,24 @@ export default function CasesPage() {
                         <Star className="h-4 w-4 text-amber-500 mr-1" />
                         これまでの歩み
                       </h4>
-                      <ul className="space-y-1 text-sm text-gray-600">
-                        {item.timeline.map((t, idx) => (
-                          <li key={idx} className="flex items-start">
-                            <span className="mr-2 text-primary">•</span>
-                            <span>{t}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="space-y-3">
+                        {item.timeline.map((t, idx) => {
+                          const timeMatch = t.match(/^(小学\d年|中学\d年|小\d|中\d|現在)/)
+                          const timeChip = timeMatch ? timeMatch[1] : null
+                          const content = timeMatch ? t.substring(timeMatch[0].length + 1).trim() : t
+                          
+                          return (
+                            <div key={idx} className="flex items-start gap-2">
+                              {timeChip && (
+                                <span className="inline-flex items-center rounded px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 ring-1 ring-gray-200 whitespace-nowrap">
+                                  {timeChip}
+                                </span>
+                              )}
+                              <span className="text-sm text-gray-600 flex-1">{content}</span>
+                            </div>
+                          )
+                        })}
+                      </div>
                     </section>
 
                     <section>
@@ -352,6 +370,23 @@ export default function CasesPage() {
                           {item.participation.map((p, idx) => (
                             <span key={idx} className="inline-block rounded-lg bg-amber-50 px-2 py-1 text-xs text-amber-700">
                               {p}
+                            </span>
+                          ))}
+                        </div>
+                      </section>
+                    )}
+
+                    {item.achievements && item.achievements.length > 0 && (
+                      <section>
+                        <h4 className="flex items-center text-sm font-semibold text-gray-700 mb-2">
+                          <CheckCircle className="h-4 w-4 text-green-600 mr-1" />
+                          できたこと
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {item.achievements.map((a, idx) => (
+                            <span key={idx} className="inline-flex items-center rounded-full bg-green-50 px-3 py-1 text-xs text-green-700 ring-1 ring-green-100">
+                              <CheckCircle className="h-3 w-3 mr-1" />
+                              {a}
                             </span>
                           ))}
                         </div>

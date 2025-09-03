@@ -34,7 +34,7 @@ export default function Home() {
                   </p>
                   <p className="mt-4 text-sm text-gray-600">（札幌/オンライン対応）</p>
                 </div>
-                <div className="animate-fadeIn mt-10 flex flex-col sm:flex-row gap-4" style={{ animationDelay: '0.4s' }}>
+                <div className="animate-fadeIn mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6" style={{ animationDelay: '0.4s' }}>
                   <Link
                     href="/contact"
                     className="btn-primary group relative overflow-hidden rounded-full bg-primary px-8 py-4 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:bg-blue-700 hover:shadow-xl hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
@@ -91,7 +91,7 @@ export default function Home() {
             </h2>
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-            <dl className="grid max-w-xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
+            <dl className="grid max-w-xl grid-cols-1 gap-6 sm:gap-8 lg:max-w-none lg:grid-cols-3">
               <div className="group relative rounded-2xl bg-white p-8 shadow-lg ring-1 ring-gray-200/50 transition-all duration-300 hover:shadow-2xl hover:ring-primary/20 hover:-translate-y-1">
                 <div className="mb-6 inline-flex rounded-xl bg-blue-50 p-3 ring-8 ring-blue-50/50">
                   <CheckCircle className="h-6 w-6 text-primary" aria-hidden="true" />
@@ -147,7 +147,7 @@ export default function Home() {
               一人ひとりの歩みを大切にしています
             </p>
           </div>
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:max-w-none lg:grid-cols-2">
+          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 sm:mt-20 lg:max-w-none lg:grid-cols-2">
             <article className="group relative flex flex-col items-start bg-white p-8 rounded-2xl shadow-lg ring-1 ring-gray-100 transition-all duration-300 hover:shadow-2xl hover:ring-primary/10">
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <div className="relative">
@@ -214,12 +214,12 @@ export default function Home() {
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-            <ol className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <ol className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 px-4 sm:px-0">
               <li className="group relative flex flex-col">
                 <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-100 to-cyan-100 shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:scale-110">
                   <span className="text-3xl font-bold text-primary">1</span>
                 </div>
-                <h3 className="mt-6 font-semibold text-gray-900">無料相談予約</h3>
+                <h3 className="mt-6 font-semibold text-gray-900 text-sm sm:text-base">無料相談予約</h3>
                 <p className="mt-2 text-sm text-gray-600">
                   まずはお気軽にご相談ください
                 </p>
@@ -230,7 +230,7 @@ export default function Home() {
                 <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-100 to-blue-100 shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:scale-110">
                   <span className="text-3xl font-bold text-accent">2</span>
                 </div>
-                <h3 className="mt-6 font-semibold text-gray-900">見立て（アセスメント）</h3>
+                <h3 className="mt-6 font-semibold text-gray-900 text-sm sm:text-base">見立て（アセスメント）</h3>
                 <p className="mt-2 text-sm text-gray-600">
                   現状を整理し、適切な支援を提案
                 </p>
@@ -241,7 +241,7 @@ export default function Home() {
                 <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-100 to-purple-100 shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:scale-110">
                   <span className="text-3xl font-bold text-primary">3</span>
                 </div>
-                <h3 className="mt-6 font-semibold text-gray-900">計画作成</h3>
+                <h3 className="mt-6 font-semibold text-gray-900 text-sm sm:text-base">計画作成</h3>
                 <p className="mt-2 text-sm text-gray-600">
                   制度/実費の選択肢を提示
                 </p>
@@ -252,7 +252,7 @@ export default function Home() {
                 <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-100 to-pink-100 shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:scale-110">
                   <span className="text-3xl font-bold text-purple-600">4</span>
                 </div>
-                <h3 className="mt-6 font-semibold text-gray-900">伴走支援</h3>
+                <h3 className="mt-6 font-semibold text-gray-900 text-sm sm:text-base">伴走支援</h3>
                 <p className="mt-2 text-sm text-gray-600">
                   学び・生活・連携をサポート
                 </p>

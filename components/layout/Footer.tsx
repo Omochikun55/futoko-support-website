@@ -7,8 +7,10 @@ const navigation = {
     { name: '初回相談・見立て', href: '/assessment' },
     { name: '実例と歩み', href: '/cases' },
     { name: '料金・プラン', href: '/pricing' },
+    { name: '受給者証ガイド', href: '/voucher-guide' },
   ],
   support: [
+    { name: 'オンライン支援', href: '/online' },
     { name: '保護者さま向け', href: '/parents' },
     { name: '私たちについて', href: '/about' },
     { name: 'よくある質問', href: '/faq' },

@@ -6,6 +6,7 @@ import { Menu, X, Phone } from 'lucide-react'
 
 const navigation = [
   { name: '支援メニュー', href: '/services' },
+  { name: 'オンライン支援', href: '/online' },
   { name: '初回相談・見立て', href: '/assessment' },
   { name: '実例と歩み', href: '/cases' },
   { name: '料金・プラン', href: '/pricing' },
@@ -71,10 +72,10 @@ export default function Header() {
       
       {/* Mobile menu */}
       <div className={`lg:hidden ${mobileMenuOpen ? '' : 'hidden'}`}>
-        <div className="fixed inset-0 z-50" />
-        <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <div className="fixed inset-0 z-50 bg-black/30" onClick={() => setMobileMenuOpen(false)} />
+        <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-4 py-4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 animate-slideIn">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex flex-col items-start">
+            <Link href="/" className="flex flex-col items-start" onClick={() => setMobileMenuOpen(false)}>
               <span className="text-xl font-bold text-heading">みらいの学び場</span>
               <span className="text-xs text-gray-500">札幌の不登校支援</span>
             </Link>
@@ -94,7 +95,7 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 transition-colors duration-200"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.name}
@@ -104,7 +105,7 @@ export default function Header() {
               <div className="py-6 space-y-4">
                 <a
                   href="tel:011-xxxx-xxxx"
-                  className="flex items-center justify-center gap-2 rounded-md bg-gray-100 px-3 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-200"
+                  className="flex items-center justify-center gap-2 rounded-md bg-gray-100 px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-200 transition-colors duration-200"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <Phone className="h-4 w-4" />
@@ -112,7 +113,7 @@ export default function Header() {
                 </a>
                 <Link
                   href="/contact"
-                  className="block rounded-md bg-primary px-3 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-700"
+                  className="block rounded-md bg-primary px-4 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-700 transition-colors duration-200"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   無料相談を予約
