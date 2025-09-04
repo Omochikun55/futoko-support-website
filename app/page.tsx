@@ -19,8 +19,8 @@ export default function Home() {
             <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-16 lg:items-center">
               <div className="mx-auto max-w-2xl lg:mx-0">
                 <h1 className="animate-fadeIn text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-heading">
-                  不登校の<wbr/>「いま」を<wbr/>否定せず、<br className="hidden sm:block" />
-                  子どもと<wbr/>一緒に<wbr/>ゴールを<wbr/>考える。
+                  不登校の「いま」を否定せず、<br className="hidden sm:block" />
+                  子どもと一緒にゴールを考える。
                 </h1>
                 <div className="animate-fadeIn mt-6 text-base sm:text-lg md:text-xl leading-relaxed text-slate-700 max-w-2xl" style={{ animationDelay: '0.2s' }}>
                   <p>学校に行くことだけがゴールではありません。</p>

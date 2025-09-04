@@ -42,7 +42,7 @@ export default function Header() {
             </Link>
           </div>
           
-          <div className="hidden lg:flex lg:items-center lg:space-x-4 xl:space-x-6 overflow-x-auto whitespace-nowrap">
+          <div className="hidden lg:flex lg:items-center lg:space-x-6">
             {navigation.map((item) => (
               item.dropdown ? (
                 <div key={item.name} className="relative">
