@@ -42,7 +42,7 @@ export default function Header() {
             </Link>
           </div>
           
-          <div className="hidden lg:flex lg:items-center lg:gap-2 xl:gap-4 nav-scroll overflow-x-auto whitespace-nowrap max-w-4xl">
+          <div className="hidden lg:flex lg:items-center lg:gap-2 xl:gap-4">
             {navigation.map((item) => (
               item.dropdown ? (
                 <div key={item.name} className="relative">
@@ -55,7 +55,7 @@ export default function Header() {
                     <ChevronDown className="h-3 w-3" />
                   </button>
                   <div
-                    className={`absolute top-full left-0 mt-1 w-48 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition-all duration-200 ${
+                    className={`absolute top-full left-0 mt-1 w-48 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition-all duration-200 z-50 ${
                       openDropdown === item.name ? 'opacity-100 visible' : 'opacity-0 invisible'
                     }`}
                     onMouseEnter={() => setOpenDropdown(item.name)}
