@@ -42,7 +42,7 @@ export default function Header() {
             </Link>
           </div>
           
-          <div className="hidden lg:flex lg:items-center lg:space-x-6">
+          <div className="hidden lg:flex lg:items-center lg:gap-2 xl:gap-4 nav-scroll overflow-x-auto whitespace-nowrap max-w-4xl">
             {navigation.map((item) => (
               item.dropdown ? (
                 <div key={item.name} className="relative">
@@ -87,7 +87,7 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-sm font-medium text-gray-700 hover:text-primary transition-colors"
+                  className="text-sm font-medium text-gray-700 hover:text-primary transition-colors px-1 flex-shrink-0"
                 >
                   {item.name}
                 </Link>

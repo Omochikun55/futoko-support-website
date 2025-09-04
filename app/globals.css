@@ -13,19 +13,21 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-noto-sans-jp);
+  /* 日本語フォント最適化（Windows対応） */
+  font-feature-settings: "palt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Typography improvements for Japanese text */
 h1, h2, h3, h4, h5, h6 {
-  line-height: 1.2;
-  text-wrap: balance;
+  line-height: 1.4;
   word-break: keep-all;
   overflow-wrap: break-word;
 }
 
 p {
   line-height: 1.8;
-  text-wrap: pretty;
   word-break: keep-all;
   overflow-wrap: break-word;
 }
@@ -105,31 +107,15 @@ html {
 }
 
 /* Japanese text optimization */
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1.2;
-  text-wrap: balance;
-  word-break: keep-all;
-  line-break: strict;
-}
-
 h1 {
-  @apply leading-[1.2] tracking-tight;
+  @apply tracking-tight;
 }
 
 h2 {
-  @apply leading-[1.3] tracking-tight;
+  @apply tracking-tight;
 }
 
-h3, h4, h5, h6 {
-  @apply leading-[1.4];
-}
-
-/* Paragraph optimization for Japanese */
-p {
-  @apply leading-relaxed;
-  line-break: strict;
-}
-
+/* Responsive paragraph line-height */
 @media (min-width: 768px) {
   p {
     @apply leading-7;
@@ -167,10 +153,19 @@ p {
   }
 }
 
-/* Prevent horizontal scroll on mobile */
+/* Prevent horizontal scroll */
 html, body {
   overflow-x: hidden;
   max-width: 100vw;
+}
+
+/* ナビゲーション専用スクロール設定 */
+.nav-scroll::-webkit-scrollbar {
+  display: none;
+}
+.nav-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 /* Fix for mobile menu backdrop */
