@@ -15,19 +15,30 @@ body {
   font-family: var(--font-noto-sans-jp);
 }
 
-/* Typography improvements for Japanese text */
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1.2;
-  text-wrap: balance;
-  word-break: keep-all;
-  overflow-wrap: break-word;
+/* Typography improvements for Japanese text - Windows compatibility */
+body {
+  font-feature-settings: "palt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-p {
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.4;
+  text-wrap: balance;
+  word-break: keep-all;
+  line-break: strict;
+  overflow-wrap: break-word;
+  font-feature-settings: "palt" 1;
+}
+
+p, li, td, th {
   line-height: 1.8;
   text-wrap: pretty;
   word-break: keep-all;
+  line-break: strict;
   overflow-wrap: break-word;
+  font-feature-settings: "palt" 1;
 }
 
 /* Smooth scrolling */
@@ -104,32 +115,16 @@ html {
   background-size: 120px 120px;
 }
 
-/* Japanese text optimization */
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1.2;
-  text-wrap: balance;
-  word-break: keep-all;
-  line-break: strict;
-}
-
+/* Heading-specific styles */
 h1 {
-  @apply leading-[1.2] tracking-tight;
+  @apply tracking-tight;
 }
 
 h2 {
-  @apply leading-[1.3] tracking-tight;
+  @apply tracking-tight;
 }
 
-h3, h4, h5, h6 {
-  @apply leading-[1.4];
-}
-
-/* Paragraph optimization for Japanese */
-p {
-  @apply leading-relaxed;
-  line-break: strict;
-}
-
+/* Responsive paragraph line-height */
 @media (min-width: 768px) {
   p {
     @apply leading-7;
